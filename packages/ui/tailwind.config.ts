@@ -2,8 +2,10 @@ import type { Config } from "tailwindcss";
 import sharedConfig from "@repo/tailwind-config";
 
 const config: Pick<Config, "prefix" | "presets" | "content"> = {
-  content: ["./src/**/*.tsx"],
-  prefix: "ui-",
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}", // Include all file types where Tailwind classes are used
+  ],
+  prefix: "",
   presets: [sharedConfig],
 };
 

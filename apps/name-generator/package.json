@@ -1,5 +1,5 @@
 {
-  "name": "@meloroids-llc/primitives",
+  "name": "@meloroids-llc/name-generator",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
+    "@meloroids-llc/ui": "*",
     "@repo/eslint-config": "*",
     "@repo/tailwind-config": "*",
     "@repo/typescript-config": "*",
