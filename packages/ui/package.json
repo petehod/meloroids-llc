@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
     "./styles.css": "./dist/index.css",
     "./card": "./src/card.tsx"

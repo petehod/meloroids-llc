@@ -55,7 +55,7 @@ export const Button = forwardRef<
     return (
       <Component
         className={styles}
-        ref={ref}
+        ref={ref as React.Ref<HTMLButtonElement | HTMLAnchorElement>}
         variants={BUTTON_VARIANTS}
         initial="initial"
         whileHover={"hover"}
