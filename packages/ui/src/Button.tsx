@@ -2,18 +2,27 @@
 import { forwardRef } from "react";
 import {
   BUTTON_STYLE,
-  DISABLED_BUTTON_STYLE,
-  PRIMARY_BUTTON_STYLE,
+  LARGE_BUTTON_STYLE,
+  SMALL_BUTTON_STYLE
 } from "./constants/button.constants";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { BUTTON_VARIANTS } from "./constants/animation.constants";
+import {
+  BackgroundColors,
+  BorderColors,
+  TextColors
+} from "./constants/colors.constants";
 
 type ButtonBaseProps = {
   children: React.ReactNode;
+  size?: "large" | "small";
   icon?: JSX.Element;
   iconPosition?: "left" | "right";
   as?: "button" | "a";
   disabled?: boolean;
+  backgroundColor?: BackgroundColors;
+  borderColor?: BorderColors;
+  textColor?: TextColors;
 };
 
 type ButtonProps = ButtonBaseProps &
@@ -28,18 +37,24 @@ export const Button = forwardRef<
       children,
       icon,
       disabled,
+      size = "large",
       iconPosition = "left",
+      backgroundColor = "bg-primary",
+      borderColor,
       as = "button",
+      textColor = "text-white",
       ...props
     },
     ref
   ) => {
     const Component = motion[as];
-    const styles = `${BUTTON_STYLE} ${PRIMARY_BUTTON_STYLE} ${disabled && DISABLED_BUTTON_STYLE}`;
+    const sizeStyle =
+      size === "large" ? LARGE_BUTTON_STYLE : SMALL_BUTTON_STYLE;
+    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} `;
 
     return (
       <Component
-        className={`${styles}`}
+        className={styles}
         ref={ref}
         variants={BUTTON_VARIANTS}
         initial="initial"

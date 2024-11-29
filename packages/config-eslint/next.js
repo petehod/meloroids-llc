@@ -18,30 +18,30 @@ module.exports = {
       "@vercel/style-guide/eslint/typescript",
       "@vercel/style-guide/eslint/browser",
       "@vercel/style-guide/eslint/react",
-      "@vercel/style-guide/eslint/next",
+      "@vercel/style-guide/eslint/next"
     ].map(require.resolve),
-    "turbo",
+    "turbo"
   ],
   parserOptions: {
-    project,
+    project
   },
   globals: {
     React: true,
-    JSX: true,
+    JSX: true
   },
   settings: {
     "import/resolver": {
       typescript: {
-        project,
+        project
       },
       node: {
-        extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"],
-      },
-    },
+        extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   ignorePatterns: ["node_modules/", "dist/"],
   // add rules configurations here
   rules: {
-    "import/no-default-export": "off",
-  },
+    "import/no-default-export": "off"
+  }
 };

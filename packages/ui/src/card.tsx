@@ -3,7 +3,7 @@ import { type ReactNode } from "react";
 export function Card({
   title,
   children,
-  href,
+  href
 }: {
   title: string;
   children: ReactNode;

@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import {
   BUTTON_STYLE,
   DISABLED_BUTTON_STYLE,
-  PRIMARY_BUTTON_STYLE,
+  PRIMARY_BUTTON_STYLE
 } from "../constants/button.constants";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { BUTTON_VARIANTS } from "../constants/animation.constants";

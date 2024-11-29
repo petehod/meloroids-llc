@@ -6,7 +6,7 @@ const config: Omit<Config, "content"> = {
     extend: {
       backgroundImage: {
         "glow-conic":
-          "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",
+          "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)"
       },
       colors: {
         primary: "#3b75e5",
@@ -27,10 +27,10 @@ const config: Omit<Config, "content"> = {
         deny: "#EE1515",
         denyLight: "rgba(238, 21, 21, 0.1)",
         confirm: "#177055",
-        confirmLight: "#7CD7BC",
-      },
-    },
+        confirmLight: "#7CD7BC"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
 export default config;
