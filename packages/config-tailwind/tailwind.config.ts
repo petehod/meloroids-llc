@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 
 // We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
+  content: ["./src/app/**/*.tsx"],
   theme: {
     extend: {
       backgroundImage: {
@@ -28,6 +29,46 @@ const config: Omit<Config, "content"> = {
         denyLight: "rgba(238, 21, 21, 0.1)",
         confirm: "#177055",
         confirmLight: "#7CD7BC"
+      },
+      fontSize: {
+        0.625: "0.625rem",
+        0.75: "0.75rem",
+        0.875: "0.875rem",
+        1: "1rem",
+        1.125: "1.125rem",
+        1.25: "1.25rem",
+        1.5: "1.5rem",
+        2: "2rem",
+        2.5: "2.5rem",
+        3: "3rem",
+        4: "4rem"
+      },
+      width: {
+        15: "15rem",
+        70: "70rem",
+        64: "64rem",
+        60: "60rem",
+        62: "16rem",
+        40: "40rem"
+      },
+      maxWidth: {
+        xxxs: "12rem",
+        xxs: "16rem",
+        660: "660px",
+        16: "16rem",
+        20: "20rem",
+
+        21: "21rem",
+        24: "24rem",
+        26: "26rem",
+        28: "28rem",
+        30: "30rem",
+        46: "46rem",
+        48: "48rem",
+        58: "58rem",
+        60: "60rem",
+        70: "70rem",
+        112: "28rem"
       }
     }
   },

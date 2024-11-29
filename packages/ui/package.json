@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./Input": "./src/Input.tsx",
+    "./ContentContainer": "./src/ContentContainer.tsx",
+    "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
     "./styles.css": "./dist/index.css",

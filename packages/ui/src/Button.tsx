@@ -19,6 +19,7 @@ type ButtonBaseProps = {
   icon?: JSX.Element;
   iconPosition?: "left" | "right";
   as?: "button" | "a";
+  containerStyles?: string;
   disabled?: boolean;
   backgroundColor?: BackgroundColors;
   borderColor?: BorderColors;
@@ -41,6 +42,7 @@ export const Button = forwardRef<
       iconPosition = "left",
       backgroundColor = "bg-primary",
       borderColor,
+      containerStyles,
       as = "button",
       textColor = "text-white",
       ...props
@@ -50,7 +52,7 @@ export const Button = forwardRef<
     const Component = motion[as];
     const sizeStyle =
       size === "large" ? LARGE_BUTTON_STYLE : SMALL_BUTTON_STYLE;
-    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} `;
+    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} ${containerStyles} `;
 
     return (
       <Component
