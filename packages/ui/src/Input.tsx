@@ -24,7 +24,7 @@ export const Input = memo(
       return (
         <input
           ref={ref}
-          className={`${DEFAULT_INPUT_STYLE} ${backgroundColor} ${textColor} ${marginBottom} ${containerStyle}`}
+          className={`${DEFAULT_INPUT_STYLE} focus:outline-none focus:border-2 focus:border-dark ${backgroundColor} ${textColor} ${marginBottom} ${containerStyle}`}
           {...rest}
         />
       );

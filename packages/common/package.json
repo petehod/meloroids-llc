@@ -1,0 +1,20 @@
+{
+  "name": "@meloroids-llc/common",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./validators": {
+      "User": "./src/validators/user.validators.ts"
+    }
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

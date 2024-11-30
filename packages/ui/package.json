@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./Header": "./src/Header.tsx",
+    "./Select": "./src/Select.tsx",
     "./Input": "./src/Input.tsx",
     "./ContentContainer": "./src/ContentContainer.tsx",
     "./Label": "./src/Label.tsx",

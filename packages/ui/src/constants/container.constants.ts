@@ -1,1 +1,1 @@
-export const DEFAULT_CONTAINER_STYLES = `flex flex-col w-full max-w-60`;
+export const DEFAULT_CONTAINER_STYLES = `flex  w-full max-w-70 py-12`;

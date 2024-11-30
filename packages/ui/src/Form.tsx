@@ -17,7 +17,7 @@ export const Form = memo(
     title,
     children,
     button,
-    backgroundColor = "bg-dark",
+    backgroundColor = "bg-primary",
     textColor = "text-white",
     containerStyles,
     ...rest

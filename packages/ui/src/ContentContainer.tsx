@@ -15,7 +15,7 @@ export const ContentContainer = memo(
   ({
     children,
     backgroundColor,
-    containerStyles = `items-center justify-center`
+    containerStyles = `flex-col items-center justify-center`
   }: ContentContainerProps) => {
     return (
       <div
