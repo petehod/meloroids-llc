@@ -17,16 +17,16 @@
     "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
-    "./styles.css": "./dist/index.css",
+    "./styles.css": "./dist/styles.css",
     "./Card": "./src/Card.tsx",
     "./Modal": "./src/Modal.tsx",
     "./useModal": "./src/hooks/useModal.ts"
   },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "lint": "eslint src/",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {

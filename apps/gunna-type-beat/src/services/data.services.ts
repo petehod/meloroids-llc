@@ -1,4 +1,5 @@
 import { SONGS } from "../data/songs.data";
+
 export const DataService = {
   calculateChordProgressionFrequencies: () => {
     const totalSongs = SONGS.length;
