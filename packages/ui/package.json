@@ -17,7 +17,7 @@
     "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
-    "./styles.css": "./dist/styles.css",
+    "./styles.css": "./src/styles.css",
     "./Card": "./src/Card.tsx",
     "./Modal": "./src/Modal.tsx",
     "./useModal": "./src/hooks/useModal.ts"
