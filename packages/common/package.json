@@ -1,20 +1,36 @@
 {
-  "name": "@meloroids-llc/common",
+  "name": "@repo/common",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
   },
   "exports": {
-    "./validators": {
-      "User": "./src/validators/user.validators.ts"
+    "./add": {
+      "types": "./src/add.ts",
+      "default": "./dist/add.js"
+    },
+    "./subtract": {
+      "types": "./src/subtract.ts",
+      "default": "./dist/subtract.js"
+    },
+    "./user": {
+      "types": "./src/validators/user.ts",
+      "default": "./dist/validators/user.js"
     }
   },
   "devDependencies": {
     "@repo/typescript-config": "*",
     "typescript": "latest"
   },
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
+    "uuid": "^11.0.3",
     "zod": "^3.23.8"
   }
 }

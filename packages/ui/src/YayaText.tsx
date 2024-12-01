@@ -1,3 +1,4 @@
+import { TextColors } from "./constants/colors.constants";
 import { TextSize, FontWeight, getTextStyles } from "./utils/textStyles.utils";
 interface YayaTextProps {
   type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
@@ -5,6 +6,7 @@ interface YayaTextProps {
   children: React.ReactNode;
   textSize?: TextSize;
   fontWeight?: FontWeight;
+  textColor?: TextColors;
 }
 
 export const YayaText: React.FC<YayaTextProps> = ({
@@ -12,7 +14,8 @@ export const YayaText: React.FC<YayaTextProps> = ({
   className = "",
   children,
   textSize,
-  fontWeight
+  fontWeight,
+  textColor
 }) => {
   const baseStyles = getTextStyles(type, textSize, fontWeight);
 
@@ -20,5 +23,9 @@ export const YayaText: React.FC<YayaTextProps> = ({
 
   const Component = type;
 
-  return <Component className={combinedStyles}>{children}</Component>;
+  return (
+    <Component className={`${combinedStyles} ${textColor}`}>
+      {children}
+    </Component>
+  );
 };

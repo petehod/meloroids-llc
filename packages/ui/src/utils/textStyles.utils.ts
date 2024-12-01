@@ -30,11 +30,11 @@ export const getTextStyles = (
 
   switch (type) {
     case "h1":
-      return `${size || "text-4"} ${weight || "font-bold"}`.trim();
+      return `${size || "text-3"} ${weight || "font-bold"}`.trim();
     case "h2":
-      return `${size || "text-3"} ${weight || "font-semibold"}`.trim();
+      return `${size || "text-2"} ${weight || "font-semibold"}`.trim();
     case "h3":
-      return `${size || "text-2"} ${weight || "font-medium"}`.trim();
+      return `${size || "text-1.5"} ${weight || "font-medium"}`.trim();
     case "h4":
       return `${size || "text-1.125"} ${weight || "font-medium"}`.trim();
     case "h5":

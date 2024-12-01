@@ -69,6 +69,9 @@ const config: Omit<Config, "content"> = {
         60: "60rem",
         70: "70rem",
         112: "28rem"
+      },
+      flex: {
+        "2": "2 2 0%"
       }
     }
   },

@@ -24,6 +24,7 @@ type ButtonBaseProps = {
   backgroundColor?: BackgroundColors;
   borderColor?: BorderColors;
   textColor?: TextColors;
+  maxWidth?: string;
 };
 
 type ButtonProps = ButtonBaseProps &
@@ -43,6 +44,7 @@ export const Button = forwardRef<
       backgroundColor = "bg-primary",
       borderColor,
       containerStyles,
+      maxWidth,
       as = "button",
       textColor = "text-white",
       ...props
@@ -52,7 +54,7 @@ export const Button = forwardRef<
     const Component = motion[as];
     const sizeStyle =
       size === "large" ? LARGE_BUTTON_STYLE : SMALL_BUTTON_STYLE;
-    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} ${containerStyles} `;
+    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} ${containerStyles} ${maxWidth}`;
 
     return (
       <Component

@@ -9,14 +9,18 @@
   ],
   "exports": {
     "./Header": "./src/Header.tsx",
+    "./YayaText": "./src/YayaText.tsx",
     "./Select": "./src/Select.tsx",
     "./Input": "./src/Input.tsx",
     "./ContentContainer": "./src/ContentContainer.tsx",
+    "./TextContainer": "./src/TextContainer.tsx",
     "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
     "./styles.css": "./dist/index.css",
-    "./card": "./src/card.tsx"
+    "./Card": "./src/Card.tsx",
+    "./Modal": "./src/Modal.tsx",
+    "./useModal": "./src/hooks/useModal.ts"
   },
   "license": "MIT",
   "scripts": {

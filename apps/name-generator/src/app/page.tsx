@@ -7,8 +7,14 @@ import { Header } from "@repo/ui/Header";
 import { Input } from "@repo/ui/Input";
 import { Label } from "@repo/ui/Label";
 import Link from "next/link";
-import { useRef } from "react";
 import { YayaText } from "../../../../packages/ui/src/YayaText";
+
+const LINKS = [
+  {
+    text: "Home",
+    link: "/"
+  }
+];
 
 export default function Page(): JSX.Element {
   return (
@@ -17,9 +23,11 @@ export default function Page(): JSX.Element {
         logo={<YayaText type="h2">Name Generator</YayaText>}
         navLinks={
           <>
-            <Link href={"/hello"}>test</Link>
-            <Link href={"/"}>test</Link>
-            <Link href={"/"}>test</Link>
+            {LINKS.map((link) => (
+              <Link key={link.text} href={link.link}>
+                {link.text}
+              </Link>
+            ))}
           </>
         }
       />
