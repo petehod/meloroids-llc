@@ -1,5 +1,5 @@
 {
-  "name": "@repo/common",
+  "name": "@repo/chord-progressions",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
@@ -13,10 +13,6 @@
     "./subtract": {
       "types": "./src/subtract.ts",
       "default": "./dist/subtract.js"
-    },
-    "./user": {
-      "types": "./src/validators/user.ts",
-      "default": "./dist/validators/user.js"
     }
   },
   "devDependencies": {
@@ -28,9 +24,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "uuid": "^11.0.3",
-    "zod": "^3.23.8"
-  }
+  "description": ""
 }

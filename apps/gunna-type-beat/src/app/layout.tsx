@@ -44,7 +44,9 @@ export default function RootLayout({
           navLinks={
             <nav className="flex gap-8">
               {NAV_LINKS.map((link) => (
-                <Link href={link.href}>{link.text}</Link>
+                <Link key={link.text} href={link.href}>
+                  {link.text}
+                </Link>
               ))}
             </nav>
           }
