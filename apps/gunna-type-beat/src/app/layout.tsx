@@ -3,9 +3,9 @@ import "./globals.css";
 import "@repo/ui/styles.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { YayaText } from "../../../../packages/ui/src/YayaText";
 import Link from "next/link";
 import { ContentContainer } from "@repo/ui/ContentContainer";
+import { YayaText } from "@repo/ui/YayaText";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -37,14 +37,14 @@ export default function RootLayout({
       >
         <Header
           logo={
-            <Link href={"/"}>
+            <Link href="/">
               <YayaText type="h1">Gunna Type Beat</YayaText>
             </Link>
           }
           navLinks={
             <nav className="flex gap-8">
               {NAV_LINKS.map((link) => (
-                <Link key={link.text} href={link.href}>
+                <Link href={link.href} key={link.text}>
                   {link.text}
                 </Link>
               ))}

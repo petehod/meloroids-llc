@@ -10,9 +10,9 @@ export default function Home(): JSX.Element {
       <ContentContainer containerStyles="flex-row items-center justify-center gap-12">
         <TextContainer containerStyles="text-center flex flex-col flex-1 gap-4">
           <YayaText type="h2">
-            All of Gunna's songs. Chords, tempos, chord progressions.
+            All of Gunna&apos;s songs. Chords, tempos, chord progressions.
           </YayaText>
-          <YayaText type="p" textSize="1.125">
+          <YayaText textSize="1.125" type="p">
             Use this data to get yourself a placement!
           </YayaText>
           <Button as="a" href="/gunna">
@@ -20,11 +20,11 @@ export default function Home(): JSX.Element {
           </Button>
         </TextContainer>
         <Image
-          src={"/gunna.jpg"}
-          width={400}
-          height={400}
-          className="object-contain w-1/3 flex-1 rounded-lg"
           alt="gunna wearing a fancy jacket and sunglasses."
+          className="object-contain w-1/3 flex-1 rounded-lg"
+          height={400}
+          src="/gunna.jpg"
+          width={400}
         />
       </ContentContainer>
     </main>

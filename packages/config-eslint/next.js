@@ -40,8 +40,13 @@ module.exports = {
     }
   },
   ignorePatterns: ["node_modules/", "dist/"],
-  // add rules configurations here
+
   rules: {
-    "import/no-default-export": "off"
+    "import/no-default-export": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "unicorn/filename-case": "off",
+    camelcase: "off"
   }
 };

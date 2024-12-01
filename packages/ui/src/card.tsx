@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef } from "react";
+import { memo } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { BUTTON_VARIANTS } from "./constants/animation.constants";
 
@@ -9,27 +9,42 @@ type CardBaseProps = {
   containerStyles?: string;
 };
 
-type CardProps = CardBaseProps &
-  (HTMLMotionProps<"div"> | HTMLMotionProps<"a">);
+type MotionDivProps = HTMLMotionProps<"div"> &
+  React.HTMLAttributes<HTMLDivElement>;
+type MotionAnchorProps = HTMLMotionProps<"a"> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Card = forwardRef<HTMLDivElement | HTMLAnchorElement, CardProps>(
-  ({ children, href, containerStyles, ...props }, ref) => {
-    const Component = href ? motion.a : motion.div;
-    const styles = `card-base-styles ${containerStyles || ""}`;
+type CardProps = CardBaseProps & (MotionDivProps | MotionAnchorProps);
+
+export const Card = memo<CardProps>(
+  ({ children, href, containerStyles, ...props }) => {
+    if (href) {
+      return (
+        <motion.a
+          className={`card-base-styles ${containerStyles || ""}`}
+          href={href}
+          variants={BUTTON_VARIANTS}
+          initial="initial"
+          animate="initial"
+          whileHover="hover"
+          {...(props as MotionAnchorProps)}
+        >
+          {children}
+        </motion.a>
+      );
+    }
 
     return (
-      <Component
-        ref={ref as React.Ref<HTMLDivElement | HTMLAnchorElement>}
-        className={styles}
-        href={href}
+      <motion.div
+        className={`card-base-styles ${containerStyles || ""}`}
         variants={BUTTON_VARIANTS}
         initial="initial"
         animate="initial"
         whileHover="hover"
-        {...props}
+        {...(props as MotionDivProps)}
       >
         {children}
-      </Component>
+      </motion.div>
     );
   }
 );

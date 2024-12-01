@@ -1,11 +1,10 @@
 "use client";
-import { forwardRef } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 import {
   BUTTON_STYLE,
   LARGE_BUTTON_STYLE,
   SMALL_BUTTON_STYLE
 } from "./constants/button.constants";
-import { motion, HTMLMotionProps } from "framer-motion";
 import { BUTTON_VARIANTS } from "./constants/animation.constants";
 import {
   BackgroundColors,
@@ -27,52 +26,46 @@ type ButtonBaseProps = {
   maxWidth?: string;
 };
 
-type ButtonProps = ButtonBaseProps &
-  (HTMLMotionProps<"button"> | HTMLMotionProps<"a">);
+type MotionButtonProps = HTMLMotionProps<"button"> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
+type MotionAnchorProps = HTMLMotionProps<"a"> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Button = forwardRef<
-  HTMLButtonElement | HTMLAnchorElement,
-  ButtonProps
->(
-  (
-    {
-      children,
-      icon,
-      disabled,
-      size = "large",
-      iconPosition = "left",
-      backgroundColor = "bg-primary",
-      borderColor,
-      containerStyles,
-      maxWidth,
-      as = "button",
-      textColor = "text-white",
-      ...props
-    },
-    ref
-  ) => {
-    const Component = motion[as];
-    const sizeStyle =
-      size === "large" ? LARGE_BUTTON_STYLE : SMALL_BUTTON_STYLE;
-    const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} ${containerStyles} ${maxWidth}`;
+type ButtonProps = ButtonBaseProps & (MotionButtonProps | MotionAnchorProps);
 
-    return (
-      <Component
-        className={styles}
-        ref={ref as React.Ref<HTMLButtonElement | HTMLAnchorElement>}
-        variants={BUTTON_VARIANTS}
-        initial="initial"
-        whileHover={"hover"}
-        whileTap={"press"}
-        animate={"initial"}
-        {...props}
-      >
-        {icon && iconPosition === "left" && icon}
-        {children}
-        {icon && iconPosition === "right" && icon}
-      </Component>
-    );
-  }
-);
+export const Button = ({
+  children,
+  icon,
+  disabled,
+  size = "large",
+  iconPosition = "left",
+  backgroundColor = "bg-primary",
+  borderColor,
+  containerStyles,
+  maxWidth,
+  as = "button",
+  textColor = "text-white",
+  ...props
+}: ButtonProps) => {
+  const Component = motion[as] as React.ElementType;
 
-Button.displayName = "Button";
+  const sizeStyle = size === "large" ? LARGE_BUTTON_STYLE : SMALL_BUTTON_STYLE;
+  const styles = `${BUTTON_STYLE} ${sizeStyle} ${textColor}  ${backgroundColor} ${borderColor && `border-2`} ${borderColor} ${containerStyles} ${maxWidth}`;
+
+  return (
+    <Component
+      className={styles}
+      disabled={disabled && as === "button" ? true : undefined}
+      variants={BUTTON_VARIANTS}
+      initial="initial"
+      whileHover="hover"
+      whileTap="press"
+      animate="initial"
+      {...props}
+    >
+      {icon && iconPosition === "left" && icon}
+      {children}
+      {icon && iconPosition === "right" && icon}
+    </Component>
+  );
+};

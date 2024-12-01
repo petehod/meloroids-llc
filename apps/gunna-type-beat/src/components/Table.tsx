@@ -1,50 +1,47 @@
 import { memo, useState } from "react";
-import { Song, SONGS } from "../data/songs.data";
-import { Album } from "../data/gunna.data";
 import { useModal } from "@repo/ui/useModal";
-import { SongTableRow } from "./SongTableRow";
-import { Modal } from "@repo/ui/Modal";
-
-import { SongDetailsModal } from "./SongDetailsModal";
+import type { Song } from "../data/songs.data";
 import { DataService } from "../services/data.services";
-type TableProps = {
+import { SongTableRow } from "./SongTableRow";
+import { SongDetailsModal } from "./SongDetailsModal";
+
+interface TableProps {
   columnTitles: string[];
   songs: Song[];
-  album: Album;
-};
+}
 
-export const Table = memo(({ columnTitles, songs, album }: TableProps) => {
+export const Table = memo(({ columnTitles, songs }: TableProps) => {
   const [selectedSong, setSelectedSong] = useState<Song | null>(null);
   const { modalOpen, openModal, closeModal } = useModal();
 
   return (
     <>
-      {modalOpen && selectedSong && (
-        <SongDetailsModal song={selectedSong} onClose={closeModal} />
-      )}
+      {modalOpen && selectedSong ? (
+        <SongDetailsModal onClose={closeModal} song={selectedSong} />
+      ) : null}
       <div className="p-6 bg-light">
-        <div
-          className={`grid grid-cols-6 gap-4  font-medium bg-dark p-4 rounded-md`}
-        >
+        <div className="grid grid-cols-6 gap-4  font-medium bg-dark p-4 rounded-md">
           {columnTitles.map((column) => (
             <div key={column}>{column}</div>
           ))}
         </div>
-        {songs.map((song, index) => {
+        {songs.map((song) => {
           const progressionFrequency =
             DataService.singleChordProgressionFrequency(song.progression);
           return (
             <SongTableRow
+              chords={song.chords}
+              key={song.name}
+              name={song.name}
               onClick={() => {
                 openModal();
                 setSelectedSong(song);
               }}
-              key={index}
-              chords={song.chords}
-              songKey={song.key}
-              name={song.name}
               progression={song.progression}
-              progressionFrequency={progressionFrequency?.frequency as string}
+              progressionFrequency={
+                progressionFrequency?.frequency ?? "Unknown"
+              }
+              songKey={song.key}
               tempo={song.tempo}
               youtube={song.youtube}
             />
@@ -54,3 +51,4 @@ export const Table = memo(({ columnTitles, songs, album }: TableProps) => {
     </>
   );
 });
+Table.displayName = "Table";

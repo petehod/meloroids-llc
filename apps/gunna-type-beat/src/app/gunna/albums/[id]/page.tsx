@@ -1,11 +1,12 @@
 "use client";
 import { YayaText } from "@repo/ui/YayaText";
 import Image from "next/image";
-import { Album, ALBUM_DATA } from "../../../../data/gunna.data";
 import { useParams } from "next/navigation";
-import { SONGS } from "../../../../data/songs.data";
 import { Button } from "@repo/ui/Button";
+import { ALBUM_DATA } from "../../../../data/gunna.data";
+import { SONGS } from "../../../../data/songs.data";
 import { Table } from "../../../../components/Table";
+
 const column = [
   "Song Name",
   "Tempo",
@@ -18,17 +19,17 @@ const column = [
 export default function AlbumPage() {
   const { id: albumID } = useParams();
 
-  const album = ALBUM_DATA.find((album) => album.id === albumID) as Album;
+  const album = ALBUM_DATA.find((a) => a.id === albumID)!;
   const songs = SONGS.filter((song) => song.album === albumID);
   return (
     <div className="w-full">
-      <Button href="/gunna" as="a" containerStyles="max-w-64">
+      <Button as="a" containerStyles="max-w-64" href="/gunna">
         Albums
       </Button>
       <YayaText type="h2">{album.title}</YayaText>
-      <Image alt={album.alt} src={album.source} height={200} width={200} />
+      <Image alt={album.alt} height={200} src={album.source} width={200} />
 
-      <Table album={album} columnTitles={column} songs={songs}></Table>
+      <Table columnTitles={column} songs={songs} />
     </div>
   );
 }

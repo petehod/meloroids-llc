@@ -1,6 +1,6 @@
 import { ds4everId, oneOfOneId } from "./gunna.data";
 
-export type Song = {
+export interface Song {
   name: string;
   tempo: number;
   key: string;
@@ -9,7 +9,7 @@ export type Song = {
   chords: string[];
   progression: string;
   album: string;
-};
+}
 
 export const ONE_OF_WUN_SONGS: Song[] = [
   {
