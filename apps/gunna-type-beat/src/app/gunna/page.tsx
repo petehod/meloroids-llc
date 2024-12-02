@@ -1,7 +1,7 @@
 import { Card } from "@repo/ui/Card";
 import { YayaText } from "@repo/ui/YayaText";
 import Image from "next/image";
-import { ALBUM_DATA } from "../../data/gunna.data";
+import { ALBUM_DATA } from "../../data/albums.data";
 
 export default function Data() {
   return (
@@ -26,6 +26,7 @@ export default function Data() {
           </Card>
         ))}
       </div>
+      <YayaText type="p">Other albums coming soon....</YayaText>
     </div>
   );
 }

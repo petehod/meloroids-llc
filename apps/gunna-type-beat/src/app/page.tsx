@@ -7,15 +7,15 @@ import Image from "next/image";
 export default function Home(): JSX.Element {
   return (
     <main className="flex flex-col items-center justify-start min-h-screen">
-      <ContentContainer containerStyles="flex-row items-center justify-center gap-12">
-        <TextContainer containerStyles="text-center flex flex-col flex-1 gap-4">
+      <ContentContainer containerStyles="flex-row items-center justify-start text-left gap-12">
+        <TextContainer containerStyles=" flex flex-col flex-1 gap-6">
           <YayaText type="h2">
-            All of Gunna&apos;s songs. Chords, tempos, chord progressions.
+            Gunna&apos;s songs, tempos, & chord progressions.
           </YayaText>
           <YayaText textSize="1.125" type="p">
             Use this data to get yourself a placement!
           </YayaText>
-          <Button as="a" href="/gunna">
+          <Button as="a" containerStyles="md:max-w-64" href="/gunna">
             Go to data
           </Button>
         </TextContainer>

@@ -3,7 +3,7 @@ import { YayaText } from "@repo/ui/YayaText";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Button } from "@repo/ui/Button";
-import { ALBUM_DATA } from "../../../../data/gunna.data";
+import { ALBUM_DATA } from "../../../../data/albums.data";
 import { SONGS } from "../../../../data/songs.data";
 import { Table } from "../../../../components/Table";
 

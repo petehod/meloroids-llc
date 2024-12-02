@@ -1,4 +1,4 @@
-import { ds4everId, oneOfOneId } from "./gunna.data";
+import { ds4everId, oneOfOneId } from "./albums.data";
 
 export interface Song {
   name: string;

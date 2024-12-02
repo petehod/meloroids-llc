@@ -10,18 +10,18 @@ export interface Album {
 }
 
 export const ALBUM_DATA: Album[] = [
-  {
-    source: "/albums/a-gift-and-a-curse.jpg",
-    title: "A Gift & A Curse",
-    alt: "Gunna with a skull with flowers on his head",
-    id: aGiftAndACurseId
-  },
-  {
-    source: "/albums/ds4ever.jpg",
-    title: "DS4Ever",
-    alt: "statue of Gunna wearing sunglasses",
-    id: ds4everId
-  },
+  //   {
+  //     source: "/albums/a-gift-and-a-curse.jpg",
+  //     title: "A Gift & A Curse",
+  //     alt: "Gunna with a skull with flowers on his head",
+  //     id: aGiftAndACurseId
+  //   },
+  //   {
+  //     source: "/albums/ds4ever.jpg",
+  //     title: "DS4Ever",
+  //     alt: "statue of Gunna wearing sunglasses",
+  //     id: ds4everId
+  //   },
   {
     source: "/albums/one-of-wun.jpg",
     title: "one of wun",
