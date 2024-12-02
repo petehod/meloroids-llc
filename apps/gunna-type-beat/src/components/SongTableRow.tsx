@@ -1,3 +1,4 @@
+import type { BackgroundColors } from "@repo/ui/Colors";
 import { memo } from "react";
 
 interface SongTableRowProps {
@@ -28,6 +29,9 @@ export const SongTableRow = memo(
         onClick();
       }
     };
+    const pfToNumber = parseInt(progressionFrequency.split("%")[0]);
+    const sliderColor: BackgroundColors =
+      pfToNumber > 20 ? "bg-green" : pfToNumber > 10 ? "bg-primary" : "bg-red";
 
     return (
       <div
@@ -50,16 +54,17 @@ export const SongTableRow = memo(
         <div>
           {progression}
 
-          <div className="w-full h-4 bg-primary rounded-full flex justify-start">
+          <div className="w-full h-4 bg-dark rounded-full flex justify-start">
             <div
-              className=" h-full bg-dark rounded-full"
+              className={`h-full  rounded-full ${sliderColor}`}
               style={{ width: progressionFrequency }}
             />
           </div>
+          {progressionFrequency}
         </div>
         <div>
           <a
-            className="text-blue-500 underline "
+            className="text-primary underline "
             href={youtube}
             rel="noopener noreferrer"
             style={{ maxWidth: "100%" }}

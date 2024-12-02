@@ -47,6 +47,7 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "unicorn/filename-case": "off",
+    "no-nested-ternary": "off",
     camelcase: "off"
   }
 };

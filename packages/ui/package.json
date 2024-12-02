@@ -20,7 +20,8 @@
     "./styles.css": "./src/styles.css",
     "./Card": "./src/Card.tsx",
     "./Modal": "./src/Modal.tsx",
-    "./useModal": "./src/hooks/useModal.ts"
+    "./useModal": "./src/hooks/useModal.ts",
+    "./Colors": "./src/constants/colors.constants.ts"
   },
   "license": "MIT",
   "scripts": {

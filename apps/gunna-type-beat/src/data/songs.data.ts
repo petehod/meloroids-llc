@@ -55,17 +55,17 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     progression: "i | bVII",
     album: oneOfOneId
   },
-  //   {
-  //     name: "hakuna matata",
-  //     tempo: 138,
-  //     key: "",
-  //     youtube:
-  //       "",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
+  {
+    name: "hakuna matata",
+    tempo: 138,
+    key: "D# Minor",
+    youtube:
+      "https://www.youtube.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=5",
+    artists: ["Gunna"],
+    chords: ["D#-", "C#"],
+    progression: "i | bVII",
+    album: oneOfOneId
+  },
   {
     name: "prada dem",
     tempo: 120,
@@ -76,17 +76,16 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     progression: "[i | bVII x3] | v",
     album: oneOfOneId
   },
-  //   {
-  //     name: "treesh",
-  //     tempo: 130,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=qaWJMBTnHwg",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
+  {
+    name: "treesh",
+    tempo: 130,
+    key: "C# Minor",
+    youtube: "https://www.youtube.com/watch?v=qaWJMBTnHwg",
+    artists: ["Gunna"],
+    chords: ["C#-", "B", "C#-", "A"],
+    progression: "i | bVII | i | bVI",
+    album: oneOfOneId
+  },
   {
     name: "on one tonight",
     tempo: 128,
@@ -97,94 +96,86 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     progression: "i | bVI | bIII | bVII",
     album: oneOfOneId
   },
-  //   {
-  //     name: "back in the a",
-  //     tempo: 134,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=jC8_6QxGRjc",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "trio",
-  //     tempo: 132,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=aL4GcLvFFx8",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "still prevail",
-  //     tempo: 132,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=x6jX7eiNz58",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "blackjack",
-  //     tempo: 154,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=INpDMPTYryg",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "$$$",
-  //     tempo: 160,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=nUXscMOYRL8",
-  //     artists: ["Gunna", "Normani"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "clear my rain",
-  //     tempo: 98,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=IT4KbbIK-wU",
-  //     artists: ["Gunna", "Leon Bridges"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "conscience",
-  //     tempo: 160,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=GDPnI4CbyBw",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "the time",
-  //     tempo: 154,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=rE0lN0snNb8",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
+  {
+    name: "back in the a",
+    tempo: 134,
+    key: "D Minor",
+    youtube: "https://www.youtube.com/watch?v=jC8_6QxGRjc",
+    artists: ["Gunna"],
+    chords: ["D-", "BbMaj7"],
+    progression: "i | bVI",
+    album: oneOfOneId
+  },
+  {
+    name: "trio",
+    tempo: 132,
+    key: "C Minor",
+    youtube: "https://www.youtube.com/watch?v=aL4GcLvFFx8",
+    artists: ["Gunna"],
+    chords: ["C-", "Eb", "C-", "F-"],
+    progression: "i | bIII | i | iv",
+    album: oneOfOneId
+  },
+  {
+    name: "still prevail",
+    tempo: 132,
+    key: "E Minor",
+    youtube: "https://www.youtube.com/watch?v=x6jX7eiNz58",
+    artists: ["Gunna"],
+    chords: ["E-", "D", "C"],
+    progression: "i | bVII | bVI",
+    album: oneOfOneId
+  },
+  {
+    name: "blackjack",
+    tempo: 154,
+    key: "E Minor",
+    youtube: "https://www.youtube.com/watch?v=INpDMPTYryg",
+    artists: ["Gunna"],
+    chords: ["C", "D", "E-", "A-"],
+    progression: "bVI | bVII | i", //This progression also has a bVI v i progression: TODO: figure out how to do this
+    album: oneOfOneId
+  },
+  {
+    name: "$$$",
+    tempo: 160,
+    key: "C Minor",
+    youtube: "https://www.youtube.com/watch?v=nUXscMOYRL8",
+    artists: ["Gunna", "Normani"],
+    chords: ["C-", "Eb", "Ab ", "Bb"],
+    progression: "i | bIII | bVI | bVII",
+    album: oneOfOneId
+  },
+  {
+    name: "clear my rain",
+    tempo: 98,
+    key: "F# Minor",
+    youtube: "https://www.youtube.com/watch?v=IT4KbbIK-wU",
+    artists: ["Gunna", "Leon Bridges"],
+    chords: ["F#-7", "B-9"],
+    progression: "i | iv",
+    album: oneOfOneId
+  },
+  {
+    name: "conscience",
+    tempo: 160,
+    key: "E Minor",
+    youtube: "https://www.youtube.com/watch?v=GDPnI4CbyBw",
+    artists: ["Gunna"],
+    chords: ["E-", "Cmaj7"],
+    progression: "i | bVI",
+    album: oneOfOneId
+  },
+  {
+    name: "the time",
+    tempo: 154,
+    key: "E Minor",
+    youtube: "https://www.youtube.com/watch?v=rE0lN0snNb8",
+    artists: ["Gunna"],
+    chords: ["E-", "D", "Cmaj7"],
+    progression: "[i | bVII | bVI x3] bVI | bVII | i",
+    album: oneOfOneId
+  },
   {
     name: "let it breathe",
     tempo: 154,
@@ -194,40 +185,37 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     chords: ["C#-", "B", "F#-"],
     progression: "i | bVII | iv",
     album: oneOfOneId
+  },
+  {
+    name: "life's changing",
+    tempo: 162,
+    key: "F# Minor",
+    youtube: "https://www.youtube.com/watch?v=4bugH64ivoM",
+    artists: ["Gunna"],
+    chords: ["Dmaj7", "B-", "F#-"],
+    progression: "bVI | iv | i",
+    album: oneOfOneId
+  },
+  {
+    name: "today i did good",
+    tempo: 152,
+    key: "C# Minor",
+    youtube: "https://www.youtube.com/watch?v=zhFBTlHzMWQ",
+    artists: ["Gunna"],
+    chords: ["C#-", "Amaj7", "G#-7"],
+    progression: "i | bVI | v",
+    album: oneOfOneId
+  },
+  {
+    name: "time reveals, be careful what you wish for",
+    tempo: 174,
+    key: "G Minor",
+    youtube: "https://www.youtube.com/watch?v=2zju7-ycNsY",
+    artists: ["Gunna"],
+    chords: ["G-", "F", "Ebmaj7"],
+    progression: "i bVII bVI",
+    album: oneOfOneId
   }
-  //   ,{
-  //     name: "life's changing",
-  //     tempo: 162 ,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=4bugH64ivoM",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   ,{
-  //     name: "today i did good",
-  //     tempo: 152,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=zhFBTlHzMWQ",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
-  //   {
-  //     name: "time reveals, be careful what you wish for",
-  //     tempo: 174,
-  //     key: "",
-  //     youtube:
-  //       "https://www.youtube.com/watch?v=2zju7-ycNsY",
-  //     artists: ["Gunna"],
-  //     chords: [],
-  //     progression: "",
-  //     album: oneOfOneId
-  //   },
 ];
 
 export const DS4EVER_SONGS = [
