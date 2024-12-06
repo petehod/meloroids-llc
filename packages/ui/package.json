@@ -17,7 +17,7 @@
     "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
-    "./styles.css": "./src/styles.css",
+    "./styles.css": "./src/app/styles.css",
     "./Card": "./src/Card.tsx",
     "./Modal": "./src/Modal.tsx",
     "./useModal": "./src/hooks/useModal.ts",
@@ -25,9 +25,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "build": "tailwindcss -i ./src/app/styles.css -o ./dist/app/styles.css",
     "lint": "eslint src/",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "dev": "tailwindcss -i ./src/app/styles.css -o ./dist/app/styles.css --watch",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -42,5 +42,8 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "react-feather": "^2.0.10"
   }
 }

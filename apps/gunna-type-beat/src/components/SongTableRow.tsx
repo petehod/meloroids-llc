@@ -6,10 +6,10 @@ interface SongTableRowProps {
   tempo: number;
   songKey: string;
   chords: string[];
-  youtube: string;
   progression: string;
   progressionFrequency: string;
   onClick?: () => void;
+  gridCols?: string;
 }
 
 export const SongTableRow = memo(
@@ -18,10 +18,10 @@ export const SongTableRow = memo(
     tempo,
     songKey,
     chords,
-    youtube,
     progression,
     progressionFrequency,
-    onClick
+    onClick,
+    gridCols = "grid-cols-6"
   }: SongTableRowProps) => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
       if (onClick && (event.key === "Enter" || event.key === " ")) {
@@ -35,7 +35,7 @@ export const SongTableRow = memo(
 
     return (
       <div
-        className="grid grid-cols-6 gap-4 items-center p-4 border-b last:border-b-0 bg-white text-dark hover:bg-gray-50 overflow-hidden flex-wrap"
+        className={`grid ${gridCols} gap-4 items-center p-4 border-b last:border-b-0 bg-white text-dark hover:bg-gray-50 overflow-x-scroll md:overflow-hidden`}
         onClick={onClick}
         onKeyDown={handleKeyDown}
         role="button"
@@ -61,17 +61,6 @@ export const SongTableRow = memo(
             />
           </div>
           {progressionFrequency}
-        </div>
-        <div>
-          <a
-            className="text-primary underline "
-            href={youtube}
-            rel="noopener noreferrer"
-            style={{ maxWidth: "100%" }}
-            target="_blank"
-          >
-            {youtube}
-          </a>
         </div>
       </div>
     );

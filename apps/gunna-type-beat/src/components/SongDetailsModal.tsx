@@ -16,30 +16,65 @@ export const SongDetailsModal = memo(
     const formattedUrl = formatYouTubeUrlForIframe(youtube);
     const frequency = DataService.singleChordProgressionFrequency(progression);
 
-    return (
-      <Modal onClose={onClose}>
-        <div className="text-dark">
-          <YayaText type="h2">{name}</YayaText>
+    const parameters = [
+      `Tempo: ${tempo} bpm`,
+      `Key: ${key}`,
+      `Chords: ${chords.join("   ")}`,
+      `Progression: ${progression}`,
+      `   - This chord progression is used in ${frequency?.frequency} of
+            Gunna's songs`
+    ];
 
-          <YayaText type="h3">{artists.join(", ")}</YayaText>
+    return (
+      <Modal backgroundColor="bg-dark" onClose={onClose}>
+        <div className=" text-white py-4 h-full rounded">
+          <div className="mb-4">
+            <YayaText type="h2">{name}</YayaText>
+            <YayaText type="h3">{artists.join(", ")}</YayaText>
+          </div>
 
           <iframe
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
+            className="rounded mb-6"
             height="400"
             referrerPolicy="strict-origin-when-cross-origin"
             src={formattedUrl}
             title="YouTube video player"
             width="100%"
           />
-          <YayaText type="h3">{tempo} bpm</YayaText>
-          <YayaText type="h3">{key}</YayaText>
-          <YayaText type="h3">{progression}</YayaText>
-          <YayaText type="h3">
-            This chord progression is used in {frequency?.frequency} of
-            Gunna&apos;s songs
+          <YayaText className="mb-2" type="h3">
+            Parameters
           </YayaText>
-          <YayaText type="h3">{chords.join("   ")}</YayaText>
+          <ul className="flex flex-col gap-2 mb-6">
+            {parameters.map((param, index) => (
+              <li key={param}>
+                <YayaText
+                  className={index === parameters.length - 1 ? "ml-4" : ""}
+                  type="p"
+                >
+                  {param}
+                </YayaText>
+              </li>
+            ))}
+          </ul>
+          <section>
+            <YayaText className="mb-2" type="h3">
+              {progression} In Every Key
+            </YayaText>
+            <ul className="flex flex-col gap-2 mb-6">
+              {parameters.map((param, index) => (
+                <li key={param}>
+                  <YayaText
+                    className={index === parameters.length - 1 ? "ml-4" : ""}
+                    type="p"
+                  >
+                    {param}
+                  </YayaText>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </Modal>
     );

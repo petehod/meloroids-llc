@@ -41,15 +41,11 @@ export default function RootLayout({
               <YayaText type="h1">Gunna Type Beat</YayaText>
             </Link>
           }
-          navLinks={
-            <nav className="flex gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link href={link.href} key={link.text}>
-                  {link.text}
-                </Link>
-              ))}
-            </nav>
-          }
+          navLinks={NAV_LINKS.map((link) => (
+            <Link href={link.href} key={link.text}>
+              {link.text}
+            </Link>
+          ))}
         />
         <ContentContainer> {children}</ContentContainer>
       </body>

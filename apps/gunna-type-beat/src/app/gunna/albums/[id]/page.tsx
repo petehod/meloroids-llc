@@ -7,14 +7,7 @@ import { ALBUM_DATA } from "../../../../data/albums.data";
 import { SONGS } from "../../../../data/songs.data";
 import { Table } from "../../../../components/Table";
 
-const column = [
-  "Song Name",
-  "Tempo",
-  "Key",
-  "Chords",
-  "Chord Progression",
-  "YouTube URL"
-];
+const column = ["Song Name", "Tempo", "Key", "Chords", "Chord Progression"];
 
 export default function AlbumPage() {
   const { id: albumID } = useParams();
@@ -29,7 +22,7 @@ export default function AlbumPage() {
       <YayaText type="h2">{album.title}</YayaText>
       <Image alt={album.alt} height={200} src={album.source} width={200} />
 
-      <Table columnTitles={column} songs={songs} />
+      <Table columnTitles={column} songs={songs} gridCols="grid-cols-5" />
     </div>
   );
 }

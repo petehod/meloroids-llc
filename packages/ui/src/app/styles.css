@@ -673,12 +673,20 @@ video {
   align-items: center;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .gap-2 {
@@ -870,5 +878,18 @@ video {
 @media (min-width: 768px) {
   .md\:max-w-\[32rem\] {
     max-width: 32rem;
+  }
+}
+
+/* TODO: better fix for this */
+nav {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  nav {
+    display: flex;
+  }
+  .hamburger {
+    display: none;
   }
 }

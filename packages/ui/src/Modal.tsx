@@ -1,11 +1,19 @@
 import { ReactNode, useEffect } from "react";
+import { BackgroundColors } from "./constants/colors.constants";
 
 export interface ModalProps {
   onClose: () => void;
   children: ReactNode;
+  maxWidth?: string;
+  backgroundColor?: BackgroundColors;
 }
 
-export const Modal = ({ onClose, children }: ModalProps) => {
+export const Modal = ({
+  onClose,
+  children,
+  maxWidth = "max-w-660",
+  backgroundColor = "bg-white"
+}: ModalProps) => {
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -22,10 +30,12 @@ export const Modal = ({ onClose, children }: ModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 w-full flex items-center justify-center bg-black bg-opacity-50 ">
-      <div className="relative bg-white h-full w-full max-w-660 p-6 rounded-lg shadow-lg overflow-scroll">
+      <div
+        className={`relative  h-full w-full  p-6 rounded-lg shadow-lg overflow-scroll  ${backgroundColor} ${maxWidth}`}
+      >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          className="absolute top-2 right-2 text-1.5 text-white hover:text-gray-900"
         >
           &#x2715;
         </button>
