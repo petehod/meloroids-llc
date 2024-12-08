@@ -42,7 +42,7 @@ export const Button = ({
   backgroundColor = "bg-primary",
   borderColor,
   containerStyles,
-  maxWidth,
+  maxWidth = "md:max-w-64",
   as = "button",
   textColor = "text-white",
   ...props
