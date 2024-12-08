@@ -9,6 +9,7 @@
   ],
   "exports": {
     "./Header": "./src/Header.tsx",
+    "./MadeByDean": "./src/MadeByDean.tsx",
     "./YayaText": "./src/YayaText.tsx",
     "./Select": "./src/Select.tsx",
     "./Input": "./src/Input.tsx",

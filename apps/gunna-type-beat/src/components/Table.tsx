@@ -1,7 +1,6 @@
 import { memo, useState } from "react";
 import { useModal } from "@repo/ui/useModal";
 import type { Song } from "../data/songs.data";
-import { DataService } from "../services/data.services";
 import { SongTableRow } from "./SongTableRow";
 import { SongDetailsModal } from "./SongModal/SongDetailsModal";
 
@@ -16,11 +15,15 @@ export const Table = memo(
     const [selectedSong, setSelectedSong] = useState<Song | null>(null);
     const { modalOpen, openModal, closeModal } = useModal();
 
+    const handleClick = (song: Song) => () => {
+      openModal();
+      setSelectedSong(song);
+    };
     return (
       <>
-        {modalOpen && selectedSong ? (
+        {modalOpen && selectedSong && (
           <SongDetailsModal onClose={closeModal} song={selectedSong} />
-        ) : null}
+        )}
         <div className="p-6 bg-light w-full">
           <div
             className={`grid ${gridCols} gap-4 w-full overflow-scroll font-medium bg-dark p-4 rounded-md`}
@@ -30,24 +33,14 @@ export const Table = memo(
             ))}
           </div>
           {songs.map((song) => {
-            const progressionFrequency =
-              DataService.singleChordProgressionFrequency(
-                song.progression.numerals
-              );
             return (
               <SongTableRow
                 chords={song.chords}
                 gridCols={gridCols}
                 key={song.name}
                 name={song.name}
-                onClick={() => {
-                  openModal();
-                  setSelectedSong(song);
-                }}
+                onClick={handleClick(song)}
                 progression={song.progression.numerals}
-                progressionFrequency={
-                  progressionFrequency?.frequency ?? "Unknown"
-                }
                 songKey={song.key}
                 tempo={song.tempo}
               />

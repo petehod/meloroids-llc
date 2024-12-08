@@ -6,6 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
 import { ContentContainer } from "@repo/ui/ContentContainer";
 import { YayaText } from "@repo/ui/YayaText";
+import { Footer } from "../components/Footer";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${pjs.className} w-full h-full flex flex-col items-center justify-center`}
+        className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >
         <Header
           logo={
@@ -52,6 +53,7 @@ export default function RootLayout({
           ))}
         />
         <ContentContainer> {children}</ContentContainer>
+        <Footer />
       </body>
     </html>
   );

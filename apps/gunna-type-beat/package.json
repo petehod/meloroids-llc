@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@repo/links": "*",
     "@repo/chord-progressions": "*",
     "@repo/ui": "*",
     "framer-motion": "^11.12.0",

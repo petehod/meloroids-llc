@@ -1,5 +1,7 @@
 import { memo } from "react";
 import { getColorByFrequency } from "../utils/progressionFrequency.utils";
+import { useHandleKeyDown } from "../hooks/useHandleKeyDown";
+import { DataService } from "../services/data.services";
 
 interface SongTableRowProps {
   name: string;
@@ -7,7 +9,7 @@ interface SongTableRowProps {
   songKey: string;
   chords: string[];
   progression: string;
-  progressionFrequency: string;
+
   onClick?: () => void;
   gridCols?: string;
 }
@@ -19,17 +21,14 @@ export const SongTableRow = memo(
     songKey,
     chords,
     progression,
-    progressionFrequency,
     onClick,
     gridCols = "grid-cols-6"
   }: SongTableRowProps) => {
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (onClick && (event.key === "Enter" || event.key === " ")) {
-        event.preventDefault();
-        onClick();
-      }
-    };
-    const pfToNumber = parseInt(progressionFrequency.split("%")[0]);
+    const pfFrequency =
+      DataService.singleChordProgressionFrequency(progression);
+
+    const handleKeyDown = useHandleKeyDown(onClick);
+    const pfToNumber = parseInt(pfFrequency?.frequency.split("%")[0] ?? "");
 
     const sliderColor = getColorByFrequency(pfToNumber);
 
@@ -57,10 +56,10 @@ export const SongTableRow = memo(
           <div className="w-full h-4 bg-dark rounded-full flex justify-start">
             <div
               className={`h-full  rounded-full ${sliderColor}`}
-              style={{ width: progressionFrequency }}
+              style={{ width: pfToNumber }}
             />
           </div>
-          {progressionFrequency}
+          {pfFrequency?.frequency}
         </div>
       </div>
     );

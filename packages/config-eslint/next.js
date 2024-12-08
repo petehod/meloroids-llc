@@ -50,6 +50,7 @@ module.exports = {
     "no-nested-ternary": "off",
     camelcase: "off",
     "eslint-comments/require-description": ["off", { ignore: [] }],
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "react/jsx-no-leaked-render": "off"
   }
 };
