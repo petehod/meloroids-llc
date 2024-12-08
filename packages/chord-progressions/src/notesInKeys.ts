@@ -1,5 +1,9 @@
-// Major Keys
-export const majorKeys = [
+export interface KeyDefinition {
+  key: string;
+  notesInKey: string[];
+}
+
+export const majorKeys: KeyDefinition[] = [
   { key: "Ab", notesInKey: ["Ab", "Bb", "C", "Db", "Eb", "F", "G"] },
   { key: "A", notesInKey: ["A", "B", "C#", "D", "E", "F#", "G#", "A"] },
   { key: "Bb", notesInKey: ["Bb", "C", "D", "Eb", "F", "G", "A"] },
@@ -16,8 +20,8 @@ export const majorKeys = [
   { key: "Gb", notesInKey: ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"] },
   { key: "G", notesInKey: ["G", "A", "B", "C", "D", "E", "F#"] }
 ];
-// Minor Keys
-export const minorKeys = [
+
+export const minorKeys: KeyDefinition[] = [
   { key: "Ab", notesInKey: ["Ab", "Bb", "Cb", "Db", "Eb", "Fb", "Gb"] },
   { key: "A", notesInKey: ["A", "B", "C", "D", "E", "F", "G"] },
   { key: "A#", notesInKey: ["A#", "B#", "C#", "D#", "E#", "F#", "G#"] },
@@ -35,7 +39,7 @@ export const minorKeys = [
   { key: "G#", notesInKey: ["G#", "A#", "B", "C#", "D#", "E", "F#"] }
 ];
 
-export const chromaticKeys = [
+export const chromaticKeys: KeyDefinition[] = [
   {
     key: "Ab",
     notesInKey: [
@@ -240,7 +244,6 @@ export const chromaticKeys = [
       "D"
     ]
   },
-
   {
     key: "E",
     notesInKey: [
@@ -258,7 +261,6 @@ export const chromaticKeys = [
       "D#"
     ]
   },
-
   {
     key: "F",
     notesInKey: [

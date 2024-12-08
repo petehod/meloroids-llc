@@ -13,6 +13,9 @@
     "./subtract": {
       "types": "./src/subtract.ts",
       "default": "./dist/subtract.js"
+    },
+    "./generate-progressions": {
+      "default": "./dist/generateChords.js"
     }
   },
   "devDependencies": {
