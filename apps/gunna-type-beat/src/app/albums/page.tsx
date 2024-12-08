@@ -11,7 +11,7 @@ export default function Data() {
         {ALBUM_DATA.map((album) => (
           <Card
             className="px-4 py-6 bg-white rounded-lg flex flex-col items-center justify-center gap-4 cursor-pointer"
-            href={`gunna/albums/${album.id}`}
+            href={`albums/${album.id}`}
             key={album.title}
           >
             <Image

@@ -20,7 +20,7 @@ const NAV_LINKS = [
     text: "Home"
   },
   {
-    href: "/gunna",
+    href: "/albums",
     text: "Data"
   }
 ];
@@ -38,7 +38,9 @@ export default function RootLayout({
         <Header
           logo={
             <Link href="/">
-              <YayaText type="h1">Gunna Type Beat</YayaText>
+              <YayaText textSize="2" type="h1">
+                Gunna Type Beat
+              </YayaText>
             </Link>
           }
           navLinks={NAV_LINKS.map((link) => (

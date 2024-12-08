@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
           <YayaText textSize="1.125" type="p">
             Use this data to get yourself a placement!
           </YayaText>
-          <Button as="a" containerStyles="md:max-w-64" href="/gunna">
+          <Button as="a" containerStyles="md:max-w-64" href="/albums">
             Go to data
           </Button>
         </TextContainer>

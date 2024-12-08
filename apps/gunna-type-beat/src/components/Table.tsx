@@ -34,8 +34,8 @@ export const Table = memo(
               DataService.singleChordProgressionFrequency(song.progression);
             return (
               <SongTableRow
-                gridCols={gridCols}
                 chords={song.chords}
+                gridCols={gridCols}
                 key={song.name}
                 name={song.name}
                 onClick={() => {

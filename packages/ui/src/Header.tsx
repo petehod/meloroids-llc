@@ -20,12 +20,12 @@ export const Header = memo(({ logo, navLinks }: HeaderProps) => {
   const backgroundColor: BackgroundColors = "bg-primary";
   return (
     <header
-      className={`${DEFAULT_HEADER_STYLES} w-full flex justify-center items-center relative z-10`}
+      className={`${DEFAULT_HEADER_STYLES} w-full flex justify-center items-center `}
     >
-      <ContentContainer containerStyles="flex-row justify-between items-center w-full">
+      <ContentContainer containerStyles="flex-row relative z-10 justify-between items-center w-full">
         {logo}
 
-        <nav className="gap-8 h-full items-center justify-center hidden">
+        <nav className="gap-8 h-full items-center justify-center hidden lg:flex">
           {navLinks}
         </nav>
 
@@ -33,6 +33,7 @@ export const Header = memo(({ logo, navLinks }: HeaderProps) => {
           onClick={toggleHamburgerMenu}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
+          className="lg:hidden"
         >
           <Menu size={ICON_SIZE} className="hamburger" />
         </button>
@@ -40,16 +41,19 @@ export const Header = memo(({ logo, navLinks }: HeaderProps) => {
         {isOpen && (
           <div
             id="mobile-menu"
-            className={`absolute inset-0 w-full shadow-md min-h-screen z-50 flex flex-col items-center  ${backgroundColor}`}
+            className={`absolute inset-0 h-screen w-full shadow-md min-h-screen z-50 flex flex-col items-center  ${backgroundColor}`}
           >
-            <button
-              onClick={toggleHamburgerMenu}
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-              className={`w-full flex justify-end items-center h-24`}
-            >
-              <X size={ICON_SIZE} />
-            </button>
+            <div className=" flex w-full justify-between items-center">
+              {logo}
+              <button
+                onClick={toggleHamburgerMenu}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+                className={`flex justify-end items-center h-24`}
+              >
+                <X size={ICON_SIZE} />
+              </button>
+            </div>
             {navLinks.map((link, index) => (
               <button
                 key={index}
