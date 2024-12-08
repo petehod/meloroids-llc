@@ -48,6 +48,8 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "unicorn/filename-case": "off",
     "no-nested-ternary": "off",
-    camelcase: "off"
+    camelcase: "off",
+    "eslint-comments/require-description": ["off", { ignore: [] }],
+    "react/function-component-definition": "off"
   }
 };

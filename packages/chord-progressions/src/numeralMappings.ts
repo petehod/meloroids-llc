@@ -1,4 +1,6 @@
-// Define a common interface for numeral mappings
+/**
+ * Interface that contains all data needed about a Numeral to calculate the chord progression
+ */
 export interface NumeralInfo {
   index: number;
   numeral: string;
@@ -43,7 +45,6 @@ export const minorNumeralMap: Record<string, NumeralInfo> = {
   VII: { index: 11, numeral: "VII", is_diatonic: false, chordSuffix: "" }
 };
 
-// Helper to get numeral info for a given mode (major/minor)
 export function getNumeralInfo(
   isMajor: boolean,
   numeral: string

@@ -3,7 +3,7 @@ import { useModal } from "@repo/ui/useModal";
 import type { Song } from "../data/songs.data";
 import { DataService } from "../services/data.services";
 import { SongTableRow } from "./SongTableRow";
-import { SongDetailsModal } from "./SongDetailsModal";
+import { SongDetailsModal } from "./SongModal/SongDetailsModal";
 
 interface TableProps {
   columnTitles: string[];
@@ -31,7 +31,9 @@ export const Table = memo(
           </div>
           {songs.map((song) => {
             const progressionFrequency =
-              DataService.singleChordProgressionFrequency(song.progression);
+              DataService.singleChordProgressionFrequency(
+                song.progression.numerals
+              );
             return (
               <SongTableRow
                 chords={song.chords}
@@ -42,7 +44,7 @@ export const Table = memo(
                   openModal();
                   setSelectedSong(song);
                 }}
-                progression={song.progression}
+                progression={song.progression.numerals}
                 progressionFrequency={
                   progressionFrequency?.frequency ?? "Unknown"
                 }

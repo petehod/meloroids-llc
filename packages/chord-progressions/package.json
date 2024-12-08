@@ -6,15 +6,8 @@
     "build": "tsc"
   },
   "exports": {
-    "./add": {
-      "types": "./src/add.ts",
-      "default": "./dist/add.js"
-    },
-    "./subtract": {
-      "types": "./src/subtract.ts",
-      "default": "./dist/subtract.js"
-    },
     "./generate-progressions": {
+      "types": "./src/generateChords.ts",
       "default": "./dist/generateChords.js"
     }
   },

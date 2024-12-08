@@ -1,3 +1,6 @@
+/**
+ * Interface with the key string and all the notes in that key
+ */
 export interface KeyDefinition {
   key: string;
   notesInKey: string[];

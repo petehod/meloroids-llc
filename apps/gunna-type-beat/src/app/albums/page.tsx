@@ -10,7 +10,7 @@ export default function Data() {
       <div className="flex flex-row gap-8">
         {ALBUM_DATA.map((album) => (
           <Card
-            className="px-4 py-6 bg-white rounded-lg flex flex-col items-center justify-center gap-4 cursor-pointer"
+            className="p-4 bg-white rounded-lg flex flex-col items-center justify-center gap-4 cursor-pointer"
             href={`albums/${album.id}`}
             key={album.title}
           >

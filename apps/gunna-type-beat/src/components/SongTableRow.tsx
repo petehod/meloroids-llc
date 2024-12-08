@@ -1,5 +1,5 @@
-import type { BackgroundColors } from "@repo/ui/Colors";
 import { memo } from "react";
+import { getColorByFrequency } from "../utils/progressionFrequency.utils";
 
 interface SongTableRowProps {
   name: string;
@@ -30,8 +30,8 @@ export const SongTableRow = memo(
       }
     };
     const pfToNumber = parseInt(progressionFrequency.split("%")[0]);
-    const sliderColor: BackgroundColors =
-      pfToNumber > 20 ? "bg-green" : pfToNumber > 10 ? "bg-primary" : "bg-red";
+
+    const sliderColor = getColorByFrequency(pfToNumber);
 
     return (
       <div

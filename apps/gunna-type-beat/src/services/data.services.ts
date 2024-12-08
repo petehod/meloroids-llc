@@ -6,7 +6,7 @@ export const DataService = {
 
     const progressionFrequency = SONGS.reduce<Record<string, number>>(
       (acc, { progression }) => {
-        acc[progression] = (acc[progression] || 0) + 1;
+        acc[progression.numerals] = (acc[progression.numerals] || 0) + 1;
         return acc;
       },
       {}

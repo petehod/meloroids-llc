@@ -9,8 +9,10 @@ import { YayaText } from "@repo/ui/YayaText";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
+const title = "Gunna Type Beat";
+
 export const metadata: Metadata = {
-  title: "Gunna Type Beat",
+  title,
   description: "Song data from Gunna's discography"
 };
 
@@ -39,7 +41,7 @@ export default function RootLayout({
           logo={
             <Link href="/">
               <YayaText textSize="2" type="h1">
-                Gunna Type Beat
+                {title}
               </YayaText>
             </Link>
           }

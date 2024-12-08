@@ -1,3 +1,4 @@
+import type { EnteredChordProgression } from "@repo/chord-progressions/generate-progressions";
 import { ds4everId, oneOfOneId } from "./albums.data";
 
 export interface Song {
@@ -7,7 +8,7 @@ export interface Song {
   youtube: string;
   artists: string[];
   chords: string[];
-  progression: string;
+  progression: EnteredChordProgression;
   album: string;
 }
 
@@ -20,7 +21,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
       "https://www.youtube.com/watch?v=oAdMgexZm1A&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0",
     artists: ["Gunna"],
     chords: ["C#-", "B"],
-    progression: "i | bVII",
+    progression: { numerals: "i bVII", is_major: false },
     album: oneOfOneId
   },
   {
@@ -30,7 +31,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=w_JtBYqMgk8",
     artists: ["Gunna"],
     chords: ["Bb-7", "Eb-7"],
-    progression: "i | iv",
+    progression: { numerals: "i iv", is_major: false },
     album: oneOfOneId
   },
   {
@@ -41,7 +42,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
       "https://www.youtube.com/watch?v=hAidkjH1WiU&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=3",
     artists: ["Gunna"],
     chords: ["E-", "A-"],
-    progression: "i | iv",
+    progression: { numerals: "i iv", is_major: false },
     album: oneOfOneId
   },
   {
@@ -52,7 +53,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
       "https://www.youtube.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=4",
     artists: ["Gunna"],
     chords: ["D#-", "C#"],
-    progression: "i | bVII",
+    progression: { numerals: "i bVII", is_major: false },
     album: oneOfOneId
   },
   {
@@ -63,7 +64,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
       "https://www.youtube.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=5",
     artists: ["Gunna"],
     chords: ["D#-", "C#"],
-    progression: "i | bVII",
+    progression: { numerals: "i bVII", is_major: false },
     album: oneOfOneId
   },
   {
@@ -73,7 +74,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=Tqjw-H4QyG0",
     artists: ["Gunna", "Offset"],
     chords: ["F#-", "E", "C#-"],
-    progression: "[i | bVII x3] | v",
+    progression: { numerals: "i bVII v", is_major: false },
     album: oneOfOneId
   },
   {
@@ -83,7 +84,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=qaWJMBTnHwg",
     artists: ["Gunna"],
     chords: ["C#-", "B", "C#-", "A"],
-    progression: "i | bVII | i | bVI",
+    progression: { numerals: "i bVII i bVI", is_major: false },
     album: oneOfOneId
   },
   {
@@ -93,7 +94,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=5i0GKTp8c1Q",
     artists: ["Gunna"],
     chords: ["E-", "C", "G", "D"],
-    progression: "i | bVI | bIII | bVII",
+    progression: { numerals: "i bVI bIII bVII", is_major: false },
     album: oneOfOneId
   },
   {
@@ -103,7 +104,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=jC8_6QxGRjc",
     artists: ["Gunna"],
     chords: ["D-", "BbMaj7"],
-    progression: "i | bVI",
+    progression: { numerals: "i bVI", is_major: false },
     album: oneOfOneId
   },
   {
@@ -113,7 +114,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=aL4GcLvFFx8",
     artists: ["Gunna"],
     chords: ["C-", "Eb", "C-", "F-"],
-    progression: "i | bIII | i | iv",
+    progression: { numerals: "i bIII i iv", is_major: false },
     album: oneOfOneId
   },
   {
@@ -123,7 +124,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=x6jX7eiNz58",
     artists: ["Gunna"],
     chords: ["E-", "D", "C"],
-    progression: "i | bVII | bVI",
+    progression: { numerals: "i bVII bVI", is_major: false },
     album: oneOfOneId
   },
   {
@@ -133,7 +134,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=INpDMPTYryg",
     artists: ["Gunna"],
     chords: ["C", "D", "E-", "A-"],
-    progression: "bVI | bVII | i", //This progression also has a bVI v i progression: TODO: figure out how to do this
+    progression: { numerals: "bVI bVII i", is_major: false },
     album: oneOfOneId
   },
   {
@@ -143,7 +144,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=nUXscMOYRL8",
     artists: ["Gunna", "Normani"],
     chords: ["C-", "Eb", "Ab ", "Bb"],
-    progression: "i | bIII | bVI | bVII",
+    progression: { numerals: "i bIII bVI bVII", is_major: false },
     album: oneOfOneId
   },
   {
@@ -153,7 +154,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=IT4KbbIK-wU",
     artists: ["Gunna", "Leon Bridges"],
     chords: ["F#-7", "B-9"],
-    progression: "i | iv",
+    progression: { numerals: "i iv", is_major: false },
     album: oneOfOneId
   },
   {
@@ -163,7 +164,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=GDPnI4CbyBw",
     artists: ["Gunna"],
     chords: ["E-", "Cmaj7"],
-    progression: "i | bVI",
+    progression: { numerals: "i bVI", is_major: false },
     album: oneOfOneId
   },
   {
@@ -173,7 +174,9 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=rE0lN0snNb8",
     artists: ["Gunna"],
     chords: ["E-", "D", "Cmaj7"],
-    progression: "[i | bVII | bVI x3] bVI | bVII | i",
+    // progression: "[i | bVII | bVI x3] bVI | bVII | i",
+    progression: { numerals: "i | bVII | bVI", is_major: false },
+
     album: oneOfOneId
   },
   {
@@ -183,7 +186,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=a0iE4c3nPNM",
     artists: ["Gunna", "Roddy Ricch"],
     chords: ["C#-", "B", "F#-"],
-    progression: "i | bVII | iv",
+    progression: { numerals: "i bVII iv", is_major: false },
     album: oneOfOneId
   },
   {
@@ -193,7 +196,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=4bugH64ivoM",
     artists: ["Gunna"],
     chords: ["Dmaj7", "B-", "F#-"],
-    progression: "bVI | iv | i",
+    progression: { numerals: "bVI iv i", is_major: false },
     album: oneOfOneId
   },
   {
@@ -203,7 +206,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=zhFBTlHzMWQ",
     artists: ["Gunna"],
     chords: ["C#-", "Amaj7", "G#-7"],
-    progression: "i | bVI | v",
+    progression: { numerals: "i bVI v", is_major: false },
     album: oneOfOneId
   },
   {
@@ -213,7 +216,7 @@ export const ONE_OF_WUN_SONGS: Song[] = [
     youtube: "https://www.youtube.com/watch?v=2zju7-ycNsY",
     artists: ["Gunna"],
     chords: ["G-", "F", "Ebmaj7"],
-    progression: "i bVII bVI",
+    progression: { numerals: "i bVII bVI", is_major: false },
     album: oneOfOneId
   }
 ];
@@ -251,4 +254,4 @@ export const DS4EVER_SONGS = [
   }
 ];
 
-export const SONGS = [...ONE_OF_WUN_SONGS, ...DS4EVER_SONGS];
+export const SONGS = [...ONE_OF_WUN_SONGS];
