@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ContentContainer } from "@repo/ui/ContentContainer";
 import { YayaText } from "@repo/ui/YayaText";
 import { Footer } from "../components/Footer";
+import { GoogleAnalyticsTracker } from "../components/GoogleAnalyticsTracker";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
+      <GoogleAnalyticsTracker gaId="G-ZKXP22XP2V" />
       <body
         className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >
