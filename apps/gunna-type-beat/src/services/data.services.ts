@@ -23,5 +23,12 @@ export const DataService = {
     return allProgressions.find(
       (progression) => progression.progression === chordProgression
     );
+  },
+  songsWithProgression: (chordProgression: string, originalSong: string) => {
+    return SONGS.filter(
+      (song) =>
+        song.progression.numerals === chordProgression &&
+        song.name !== originalSong
+    );
   }
 };

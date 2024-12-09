@@ -1,12 +1,13 @@
 "use client";
+import { LINKS } from "@repo/links/links";
 import { BUTTON_VARIANTS } from "./constants/animation.constants";
 import { YayaText } from "./YayaText";
 import { motion } from "framer-motion";
 interface MadeByDeanProps {
-  href: string;
+  href?: string;
 }
 
-export const MadeByDean = ({ href }: MadeByDeanProps) => {
+export const MadeByDean = ({ href = LINKS.shop }: MadeByDeanProps) => {
   return (
     <motion.a
       variants={BUTTON_VARIANTS}

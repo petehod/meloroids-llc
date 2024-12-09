@@ -15,7 +15,7 @@ export default function AlbumPage() {
   const album = ALBUM_DATA.find((a) => a.id === albumID)!;
   const songs = SONGS.filter((song) => song.album === albumID);
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-scroll">
       <Button as="a" containerStyles="max-w-64" href="/albums">
         Albums
       </Button>

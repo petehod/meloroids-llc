@@ -6,6 +6,7 @@ import { DataService } from "../../services/data.services";
 import { SongDetailsParameters } from "./SongDetailsParameters";
 import { SongDetailsProgressionInAllKeys } from "./SongDetailsProgressionInAllKeys";
 import { SongDetailsIFrame } from "./SongDetailsIFrame";
+import { SongDetailsOtherSongs } from "./SongDetailsOtherSongs";
 
 interface SongDetailsModalProps {
   song: Song;
@@ -17,11 +18,12 @@ export const SongDetailsModal = memo(
     const { chords, artists, key, name, progression, tempo, youtube } = song;
     const { numerals } = progression;
     const frequency = DataService.singleChordProgressionFrequency(numerals);
+    const otherSongs = DataService.songsWithProgression(numerals, name);
 
     const PARAMETERS = [
       `Tempo: ${tempo} bpm`,
       `Key: ${key}`,
-      `Chords: ${chords.join("   ")}`,
+      `Chords: ${chords.join("  ")}`,
       `Progression: ${numerals}`,
       `   - This chord progression is used in ${frequency?.frequency} of
             the songs from one of wun` // TODO: make dynamic with other albums
@@ -29,27 +31,19 @@ export const SongDetailsModal = memo(
 
     return (
       <Modal backgroundColor="bg-dark" onClose={onClose}>
-        <div className=" text-white py-4 h-full rounded">
-          <div className="mb-4">
+        <div className=" text-white py-4 h-full rounded ">
+          <div className="mb-6">
             <YayaText type="h2">{name}</YayaText>
             <YayaText type="h3">{artists.join(", ")}</YayaText>
           </div>
 
           <SongDetailsIFrame source={youtube} />
 
-          <section>
-            <YayaText className="mb-2" type="h3">
-              Parameters
-            </YayaText>
-            <SongDetailsParameters parameters={PARAMETERS} />
-          </section>
+          <SongDetailsParameters parameters={PARAMETERS} />
 
-          <section>
-            <YayaText className="mb-2" type="h3">
-              {numerals} In Every Key
-            </YayaText>
-            <SongDetailsProgressionInAllKeys progression={progression} />
-          </section>
+          <SongDetailsOtherSongs numerals={numerals} otherSongs={otherSongs} />
+
+          <SongDetailsProgressionInAllKeys progression={progression} />
         </div>
       </Modal>
     );

@@ -1,6 +1,8 @@
+"use client";
 import { ReactNode, useEffect } from "react";
 import { BackgroundColors } from "./constants/colors.constants";
-
+import { motion } from "framer-motion";
+import { BUTTON_VARIANTS } from "./constants/animation.constants";
 export interface ModalProps {
   onClose: () => void;
   children: ReactNode;
@@ -29,16 +31,24 @@ export const Modal = ({
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 w-full flex items-center justify-center bg-black bg-opacity-50 ">
+    <div
+      className="fixed inset-0 z-50 w-full flex items-center justify-center bg-black bg-opacity-50"
+      onClick={onClose}
+    >
       <div
         className={`relative  h-full w-full  p-6 rounded-lg shadow-lg overflow-scroll  ${backgroundColor} ${maxWidth}`}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 text-1.5 text-white hover:text-gray-900"
-        >
-          &#x2715;
-        </button>
+        <div className="w-full flex justify-end">
+          <motion.button
+            variants={BUTTON_VARIANTS}
+            whileHover={"hover"}
+            whileTap={"press"}
+            onClick={onClose}
+            className=" text-1.5 text-white "
+          >
+            &#x2715;
+          </motion.button>
+        </div>
         {children}
       </div>
     </div>

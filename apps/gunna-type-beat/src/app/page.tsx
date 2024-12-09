@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@repo/ui/Button";
 import { ContentContainer } from "@repo/ui/ContentContainer";
 import { YayaText } from "@repo/ui/YayaText";
@@ -6,9 +7,9 @@ import Image from "next/image";
 
 export default function Home(): JSX.Element {
   return (
-    <main className="flex flex-col items-center justify-start ">
-      <ContentContainer containerStyles="flex-row items-center justify-start text-left gap-12">
-        <TextContainer containerStyles=" flex flex-col flex-1 gap-6">
+    <main className="flex flex-col w-full items-center justify-start ">
+      <ContentContainer containerStyles=" flex flex-col md:flex-row items-center w-full justify-between text-left gap-4 lg:gap-12">
+        <TextContainer containerStyles=" flex flex-col basis-full gap-6 ">
           <YayaText type="h2">
             Gunna&apos;s songs, tempos, & chord progressions.
           </YayaText>
@@ -16,16 +17,19 @@ export default function Home(): JSX.Element {
             Use this data to get yourself a placement!
           </YayaText>
           <Button as="a" containerStyles="md:max-w-64" href="/albums">
-            Go to data
+            Go to albums
           </Button>
         </TextContainer>
-        <Image
-          alt="gunna wearing a fancy jacket and sunglasses."
-          className="object-contain w-1/3 flex-1 rounded-lg"
-          height={400}
-          src="/gunna.jpg"
-          width={400}
-        />
+        <div className="flex  relative h-80 md:basis-full w-full">
+          <Image
+            alt="gunna wearing a fancy jacket and sunglasses."
+            className="rounded"
+            objectFit="contain"
+            src="/gunna.jpg"
+            fill
+            // sizes="100%"
+          />
+        </div>
       </ContentContainer>
     </main>
   );

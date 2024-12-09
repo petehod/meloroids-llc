@@ -51,6 +51,7 @@ module.exports = {
     camelcase: "off",
     "eslint-comments/require-description": ["off", { ignore: [] }],
     "react/function-component-definition": "off",
-    "react/jsx-no-leaked-render": "off"
+    "react/jsx-no-leaked-render": "off",
+    "react/no-array-index-key": "off"
   }
 };

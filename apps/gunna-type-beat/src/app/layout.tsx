@@ -24,7 +24,7 @@ const NAV_LINKS = [
   },
   {
     href: "/albums",
-    text: "Data"
+    text: "Albums"
   }
 ];
 

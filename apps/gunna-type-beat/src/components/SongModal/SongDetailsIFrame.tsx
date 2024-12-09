@@ -19,7 +19,7 @@ export const SongDetailsIFrame = ({
     <iframe
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
-      className={`rounded mb-6 ${containerStyles}`}
+      className={`rounded iframe ${containerStyles} mb-6`}
       height={height}
       referrerPolicy="strict-origin-when-cross-origin"
       src={formattedUrl}

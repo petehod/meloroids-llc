@@ -24,9 +24,9 @@ export const Table = memo(
         {modalOpen && selectedSong && (
           <SongDetailsModal onClose={closeModal} song={selectedSong} />
         )}
-        <div className="p-6 bg-light w-full">
+        <div className="p-6 bg-light table overflow-scroll">
           <div
-            className={`grid ${gridCols} gap-4 w-full overflow-scroll font-medium bg-dark p-4 rounded-md`}
+            className={`grid ${gridCols} gap-4 table overflow-scroll font-medium bg-dark p-4 rounded-md`}
           >
             {columnTitles.map((column) => (
               <div key={column}>{column}</div>

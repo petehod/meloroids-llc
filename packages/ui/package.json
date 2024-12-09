@@ -18,7 +18,7 @@
     "./Label": "./src/Label.tsx",
     "./Form": "./src/Form.tsx",
     "./Button": "./src/Button.tsx",
-    "./styles.css": "./dist/app/output.css",
+    "./styles.css": "./dist/app/styles.css",
     "./Card": "./src/Card.tsx",
     "./Modal": "./src/Modal.tsx",
     "./useModal": "./src/hooks/useModal.ts",
@@ -45,6 +45,7 @@
     "typescript": "5.5.4"
   },
   "dependencies": {
+    "@repo/links": "*",
     "react-feather": "^2.0.10"
   }
 }
