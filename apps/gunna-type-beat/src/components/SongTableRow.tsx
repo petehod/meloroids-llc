@@ -56,7 +56,7 @@ export const SongTableRow = memo(
           <div className="w-full h-4 bg-dark rounded-full flex justify-start">
             <div
               className={`h-full  rounded-full ${sliderColor}`}
-              style={{ width: pfToNumber }}
+              style={{ width: `${pfToNumber * 4}%` }}
             />
           </div>
           {pfFrequency?.frequency}

@@ -6,7 +6,9 @@ const config: Omit<Config, "content"> = {
     "./src/app/**/*.{tsx,ts}",
     "./src/components/**/*.{tsx,ts}",
     "./src/utils/**/*.{tsx,ts}",
-    "./src/constants/**/*.{tsx,ts}"
+    "./src/constants/**/*.{tsx,ts}",
+    "../ui/src/**/*.{tsx,ts}",
+    "../../apps/gunna-type-beat/src/**/*.{tsx,ts}"
   ],
   theme: {
     extend: {
@@ -28,7 +30,7 @@ const config: Omit<Config, "content"> = {
         darklight: "rgba(44,44,44,0.85)",
         black: "#111111",
         blue: "#3B7EE2",
-        green: "#37E1EC",
+        green: "#4BB543",
         red: "#EE1515",
         deny: "#EE1515",
         denyLight: "rgba(238, 21, 21, 0.1)",
@@ -80,6 +82,7 @@ const config: Omit<Config, "content"> = {
       }
     }
   },
-  plugins: []
+  plugins: [],
+  safelist: ["bg-green", "bg-red"]
 };
 export default config;

@@ -9,16 +9,18 @@ interface MadeByDeanProps {
 
 export const MadeByDean = ({ href = LINKS.shop }: MadeByDeanProps) => {
   return (
-    <motion.a
-      variants={BUTTON_VARIANTS}
-      whileTap="press"
-      initial="initial"
-      whileHover="hover"
-      href={href}
-      target="_blank"
-      animate="initial"
-    >
-      <YayaText type="h2">Made By Dean</YayaText>
-    </motion.a>
+    <footer className="mb-2 flex">
+      <motion.a
+        variants={BUTTON_VARIANTS}
+        whileTap="press"
+        initial="initial"
+        whileHover="hover"
+        href={href}
+        target="_blank"
+        animate="initial"
+      >
+        <YayaText type="h2">Made By Dean</YayaText>
+      </motion.a>
+    </footer>
   );
 };

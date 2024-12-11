@@ -5,13 +5,14 @@ import { DEFAULT_HEADER_STYLES } from "./constants/header.constants";
 import { Menu, X } from "react-feather";
 import { BackgroundColors } from "./constants/colors.constants";
 import { MobileMenu } from "./MobileMenu";
-
+import { motion, AnimatePresence } from "framer-motion";
 type HeaderProps = {
   logo: JSX.Element;
   navLinks: JSX.Element[];
+  mobileFooter: JSX.Element;
 };
 
-export const Header = memo(({ logo, navLinks }: HeaderProps) => {
+export const Header = memo(({ logo, navLinks, mobileFooter }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleHamburgerMenu = () => setIsOpen((prev) => !prev);
@@ -36,18 +37,27 @@ export const Header = memo(({ logo, navLinks }: HeaderProps) => {
           aria-controls="mobile-menu"
           className="lg:hidden"
         >
-          <Menu size={ICON_SIZE} className="hamburger" />
+          <motion.div
+            whileHover={{ rotate: 5 }} // Enlarge and rotate slightly on hover
+            whileTap={{ scale: 0.9, rotate: -5 }} // Shrink and rotate in the opposite direction on click
+            transition={{ type: "spring", stiffness: 300, damping: 10 }} // Add a spring animation
+          >
+            <Menu size={ICON_SIZE} className="hamburger" />
+          </motion.div>{" "}
         </button>
 
-        {isOpen && (
-          <MobileMenu
-            backgroundColor={backgroundColor}
-            isOpen
-            logo={logo}
-            navLinks={navLinks}
-            onClick={toggleHamburgerMenu}
-          />
-        )}
+        {/* AnimatePresence wraps the MobileMenu */}
+        <AnimatePresence>
+          {isOpen && (
+            <MobileMenu
+              backgroundColor={backgroundColor}
+              logo={logo}
+              navLinks={navLinks}
+              onClick={toggleHamburgerMenu}
+              footer={mobileFooter}
+            />
+          )}
+        </AnimatePresence>
       </ContentContainer>
     </header>
   );
