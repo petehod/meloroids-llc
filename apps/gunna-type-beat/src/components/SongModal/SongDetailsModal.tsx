@@ -19,6 +19,7 @@ export const SongDetailsModal = memo(
     const { numerals } = progression;
     const frequency = DataService.singleChordProgressionFrequency(numerals);
     const otherSongs = DataService.songsWithProgression(numerals, name);
+    const keyNoteName = song.key.split(" ")[0]; // I.E. C# rather than C# Minor
 
     const PARAMETERS = [
       `Tempo: ${tempo} bpm`,
@@ -43,7 +44,10 @@ export const SongDetailsModal = memo(
 
           <SongDetailsOtherSongs numerals={numerals} otherSongs={otherSongs} />
 
-          <SongDetailsProgressionInAllKeys progression={progression} />
+          <SongDetailsProgressionInAllKeys
+            progression={progression}
+            songKey={keyNoteName}
+          />
         </div>
       </Modal>
     );

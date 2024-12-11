@@ -37,7 +37,7 @@ export const Table = memo(
               <SongTableRow
                 chords={song.chords}
                 gridCols={gridCols}
-                key={song.name}
+                key={`${song.name} ${Math.random()}`}
                 name={song.name}
                 onClick={handleClick(song)}
                 progression={song.progression.numerals}

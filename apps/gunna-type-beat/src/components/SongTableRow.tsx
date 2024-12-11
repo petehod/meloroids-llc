@@ -46,7 +46,7 @@ export const SongTableRow = memo(
 
         <div className="flex flex-wrap gap-2">
           {chords.map((chord) => (
-            <span key={chord}>{chord}</span>
+            <span key={`${chord} ${Math.random()} `}>{chord}</span>
           ))}
         </div>
 

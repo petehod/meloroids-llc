@@ -8,10 +8,12 @@ import { EmphasizedText } from "../EmphasizeText";
 
 interface SongDetailsProgressionInAllKeysProps {
   progression: EnteredChordProgression;
+  songKey: string;
 }
 
 export const SongDetailsProgressionInAllKeys = ({
-  progression
+  progression,
+  songKey
 }: SongDetailsProgressionInAllKeysProps) => {
   const allKeys = generateProgressionsInAllKeys(progression);
 
@@ -24,12 +26,21 @@ export const SongDetailsProgressionInAllKeys = ({
         {allKeys.map((allKey, index) => {
           const { key: yayaKey, numerals } = allKey;
           const oddIndex = isOddIndex(index);
-          const bgColor: BackgroundColors = oddIndex ? "bg-white" : "bg-dark";
-          const textColor: TextColors = oddIndex ? "text-dark" : "text-white";
+          const isSongKey = songKey === yayaKey;
+          const bgColor: BackgroundColors = isSongKey
+            ? "bg-primary"
+            : oddIndex
+              ? "bg-white"
+              : "bg-dark";
+          const textColor: TextColors = isSongKey
+            ? "text-white"
+            : oddIndex
+              ? "text-dark"
+              : "text-white";
           return (
             <li
               className={`flex justify-between items-center border-b-2 p-4 ${bgColor} ${textColor}`}
-              key={yayaKey}
+              key={`${yayaKey} ${Math.random()}`}
             >
               <YayaText className="flex-1" textSize="1.25" type="h3">
                 {formatKey(yayaKey, progression.is_major)}

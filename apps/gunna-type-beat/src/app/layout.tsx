@@ -48,16 +48,16 @@ export default function RootLayout({
               </YayaText>
             </Link>
           }
+          mobileFooter={<Footer />}
           navLinks={NAV_LINKS.map((link) => (
             <Link
+              className="w-full h-full px-4 flex items-center justify-center flex-1"
               href={link.href}
               key={link.text}
-              className="w-full h-full px-4 flex items-center justify-center flex-1"
             >
               {link.text}
             </Link>
           ))}
-          mobileFooter={<Footer />}
         />
         <ContentContainer> {children}</ContentContainer>
         <Footer />

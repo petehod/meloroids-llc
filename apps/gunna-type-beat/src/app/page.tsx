@@ -24,10 +24,9 @@ export default function Home(): JSX.Element {
           <Image
             alt="gunna wearing a fancy jacket and sunglasses."
             className="rounded"
+            fill
             objectFit="contain"
             src="/gunna.jpg"
-            fill
-            // sizes="100%"
           />
         </div>
       </ContentContainer>

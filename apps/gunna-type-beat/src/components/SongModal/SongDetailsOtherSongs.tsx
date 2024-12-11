@@ -21,7 +21,7 @@ export const SongDetailsOtherSongs = ({
       {otherSongs.length > 0 ? (
         <ul>
           {otherSongs.map((otherSong) => (
-            <li key={otherSong.name}>{otherSong.name}</li>
+            <li key={`${otherSong.name} ${Math.random()}`}>{otherSong.name}</li>
           ))}
         </ul>
       ) : (
