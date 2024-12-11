@@ -17,7 +17,7 @@ const config: Omit<Config, "content"> = {
           "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)"
       },
       colors: {
-        primary: "#3b75e5",
+        primary: "#612B99",
         primaryFaded: "rgba(202, 108, 248, 0.15)",
         secondary: "#C9ABD9",
         tertiary: "#EFECF0",
@@ -83,6 +83,6 @@ const config: Omit<Config, "content"> = {
     }
   },
   plugins: [],
-  safelist: ["bg-green", "bg-red"]
+  safelist: ["bg-green", "bg-red"] // Tailwind will purge "unused" styles -> that's why these weren't working as they were being used in a function calculation
 };
 export default config;

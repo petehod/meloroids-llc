@@ -2,8 +2,8 @@ import type { BackgroundColors } from "@repo/ui/Colors";
 
 export const getColorByFrequency = (frequency: number): BackgroundColors => {
   return frequency >= 15
-    ? "bg-green"
+    ? "bg-primary"
     : frequency >= 10
-      ? "bg-primary"
+      ? "bg-green"
       : "bg-red";
 };
