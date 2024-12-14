@@ -1,5 +1,5 @@
 {
-  "name": "@repo/links",
+  "name": "@repo/assets",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
@@ -9,6 +9,10 @@
     "./links": {
       "types": "./src/links.ts",
       "default": "./dist/links.js"
+    },
+    "./googleAnalytics": {
+      "types": "./src/googleAnalytics.ts",
+      "default": "./dist/googleAnalytics.js"
     }
   },
   "devDependencies": {

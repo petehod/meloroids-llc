@@ -1,6 +1,6 @@
 "use client";
 import { MadeByDean } from "@repo/ui/MadeByDean";
-import { LINKS } from "@repo/links/links";
+import { LINKS } from "../../../../packages/assets/src/links";
 
 export const Footer = () => {
   return (

@@ -6,8 +6,9 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
 import { ContentContainer } from "@repo/ui/ContentContainer";
 import { YayaText } from "@repo/ui/YayaText";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Footer } from "../components/Footer";
-import { GoogleAnalyticsTracker } from "../components/GoogleAnalyticsTracker";
+import { GA_ID } from "@repo/assets/googleAnalytics";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -36,7 +37,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <GoogleAnalyticsTracker gaId="G-ZKXP22XP2V" />
+      {process.env.NODE_ENV === "production" && (
+        <GoogleAnalytics gaId={GA_ID} />
+      )}
       <body
         className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >

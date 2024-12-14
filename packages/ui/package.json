@@ -45,7 +45,7 @@
     "typescript": "5.5.4"
   },
   "dependencies": {
-    "@repo/links": "*",
+    "@repo/assets": "*",
     "react-feather": "^2.0.10"
   }
 }

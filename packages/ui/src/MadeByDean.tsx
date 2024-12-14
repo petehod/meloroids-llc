@@ -1,5 +1,5 @@
 "use client";
-import { LINKS } from "@repo/links/links";
+import { LINKS } from "../../assets/src/links";
 import { BUTTON_VARIANTS } from "./constants/animation.constants";
 import { YayaText } from "./YayaText";
 import { motion } from "framer-motion";
