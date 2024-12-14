@@ -79,6 +79,9 @@ const config: Omit<Config, "content"> = {
       },
       flex: {
         "2": "2 2 0%"
+      },
+      borderWidth: {
+        "1": "1px"
       }
     }
   },

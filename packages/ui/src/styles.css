@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --var-primary: #612b99;
+}
+
+.gradient-bg {
+  background: var(--var-primary);
+  background: radial-gradient(
+    circle,
+    var(--var-primary),
+    hsla(0, 0%, 17%, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    var(--var-primary),
+    hsla(0, 0%, 17%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr=var(--var-primary), endColorstr="#2C2C2C", GradientType=1 );
+}
