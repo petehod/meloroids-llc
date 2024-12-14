@@ -23,7 +23,8 @@
     "./Modal": "./src/Modal.tsx",
     "./useModal": "./src/hooks/useModal.ts",
     "./Colors": "./src/constants/colors.constants.ts",
-    "./animationVariants": "./src/constants/animation.constants.ts"
+    "./animationVariants": "./src/constants/animation.constants.ts",
+    "./icons": "./src/constants/icon.constants.ts"
   },
   "license": "MIT",
   "scripts": {

@@ -1,11 +1,10 @@
-import {
-  DOWNLOAD_ICON,
-  CHART_ICON,
-  GUITAR_ICON,
-  DICE_ICON
-} from "../constants/icon.constants";
-
 import { LINKS } from "@repo/assets/links";
+import {
+  CHART_ICON,
+  DICE_ICON,
+  DOWNLOAD_ICON,
+  GUITAR_ICON
+} from "@repo/ui/icons";
 
 type LinkBlock = {
   title: string;

@@ -1,4 +1,4 @@
-import { SOCIAL_MEDIA_ICONS } from "../../constants/icon.constants";
+import { SOCIAL_MEDIA_ICONS } from "@repo/ui/icons";
 import { memo } from "react";
 import { SocialMediaIcon } from "./SocialMediaIcon";
 import Link from "next/link";
