@@ -1,4 +1,4 @@
-import { INSTAGRAM_LINK, TIK_TOK_LINK, YOUTUBE_LINK } from "./links.constants";
+import { LINKS } from "@repo/assets/links";
 
 export const TIK_TOKE_ICON = "fa6-brands:tiktok";
 export const YOUTUBE_ICON = "fa-brands:youtube";
@@ -9,8 +9,9 @@ export const ABLETON_ICON = "skill-icons:ableton-dark";
 export const NOTION_ICON = "skill-icons:notion-dark";
 export const DOWNLOAD_ICON = `mingcute:download-fill`;
 export const CHART_ICON = `mdi:chart-line`;
+// TODO: move to UI
 export const SOCIAL_MEDIA_ICONS: { icon: string; link: string }[] = [
-  { icon: TIK_TOKE_ICON, link: TIK_TOK_LINK },
-  { icon: YOUTUBE_ICON, link: YOUTUBE_LINK },
-  { icon: INSTAGRAM_ICON, link: INSTAGRAM_LINK }
+  { icon: TIK_TOKE_ICON, link: LINKS.tikTok },
+  { icon: YOUTUBE_ICON, link: LINKS.youtube },
+  { icon: INSTAGRAM_ICON, link: LINKS.instagram }
 ];

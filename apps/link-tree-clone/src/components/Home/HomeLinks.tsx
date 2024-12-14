@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { linkBlocks } from "../../data/linkBlocks.data";
 import { ImageIcon } from "../Icons/ImageIcon";
-import { AnimatedLinkBlock } from "../Links/AnimatedLinkBlock";
+import { LinkBlock } from "../Links/LinkBlock";
 
 export const HomeLinks = memo(() => {
   return (
@@ -9,7 +9,7 @@ export const HomeLinks = memo(() => {
       {linkBlocks
         .filter((link) => link.active)
         .map((block, index) => (
-          <AnimatedLinkBlock
+          <LinkBlock
             key={index}
             title={block.title}
             link={block.link}

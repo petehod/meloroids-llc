@@ -3,6 +3,7 @@ import { memo } from "react";
 import { SocialMediaIcon } from "./SocialMediaIcon";
 import Link from "next/link";
 
+// TODO: move to UI package
 export const SocialMediaIcons = memo(() => {
   return (
     <div className={`flex w-full justify-center`}>

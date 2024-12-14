@@ -2,12 +2,13 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
 import { Icon, IconProps } from "@iconify/react";
-import { animationVariants } from "../../constants/animations.constants";
+import { BUTTON_VARIANTS } from "@repo/ui/animationVariants";
+
 export const SocialMediaIcon = memo(({ ...props }: IconProps) => {
   return (
     <motion.div
       className="bg-white text-dark rounded-full p-2"
-      variants={animationVariants}
+      variants={BUTTON_VARIANTS}
       whileTap={"tap"}
       whileHover={`hover`}
     >

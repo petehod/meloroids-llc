@@ -2,21 +2,10 @@ import {
   DOWNLOAD_ICON,
   CHART_ICON,
   GUITAR_ICON,
-  ABLETON_ICON,
-  NOTION_ICON,
-  DICE_ICON,
-  YOUTUBE_ICON
+  DICE_ICON
 } from "../constants/icon.constants";
-import {
-  ESP_LEAD_MAGNET_LINK,
-  DEANS_LIST_LINK,
-  GLG_LINK,
-  GUNNA_TYPE_BEAT_LINK,
-  GCC_LEAD_MAGNET_LINK,
-  NAME_GENERATOR_LINK,
-  LOOPS_BY_DEAN_LINK,
-  LOOP_TUTORIALS_LINK
-} from "../constants/links.constants";
+
+import { LINKS } from "@repo/assets/links";
 
 type LinkBlock = {
   title: string;
@@ -30,28 +19,28 @@ export const linkBlocks: LinkBlock[] = [
     title: "All my guitar loops (FREE)",
     icon: DOWNLOAD_ICON,
     iconType: "icon",
-    link: ESP_LEAD_MAGNET_LINK,
+    link: LINKS.expensiveSamplePackLM,
     active: true
   },
   {
     title: "All my loops (Dropbox link)",
     icon: "mdi:dropbox",
     iconType: "icon",
-    link: DEANS_LIST_LINK,
+    link: LINKS.deansList,
     active: false
   },
   {
     title: "Guitar Loop God",
     icon: "/images/glg.png",
     iconType: "image",
-    link: GLG_LINK,
+    link: LINKS.guitarLoopGod,
     active: true
   },
   {
     title: "gunnatypebeat.com (Gunna's data)",
     icon: CHART_ICON,
     iconType: "icon",
-    link: GUNNA_TYPE_BEAT_LINK,
+    link: LINKS.gunnaTypeBeat,
     active: true
   },
 
@@ -59,42 +48,15 @@ export const linkBlocks: LinkBlock[] = [
     title: "300 Guitar Chord Diagrams (FREE)",
     icon: GUITAR_ICON,
     iconType: "icon",
-    link: GCC_LEAD_MAGNET_LINK,
+    link: LINKS.guitarChordCookbookLM,
     active: true
   },
-  {
-    title: "FREE Ableton Guitar Loop Template",
-    icon: ABLETON_ICON,
-    iconType: "icon",
-    link: "/ableton-template",
-    active: false
-  },
-  {
-    title: "FREE Music Tracking Template",
-    icon: NOTION_ICON,
-    iconType: "icon",
-    link: "/music-tracking-template",
-    active: false
-  },
+
   {
     title: "Loop/Beat Name Generator",
-    link: NAME_GENERATOR_LINK,
+    link: LINKS.nameGenerator,
     iconType: "icon",
     icon: DICE_ICON,
-    active: false
-  },
-  {
-    title: "Loops by dean",
-    icon: YOUTUBE_ICON,
-    iconType: "icon",
-    link: LOOPS_BY_DEAN_LINK,
-    active: false
-  },
-  {
-    title: "Loop Tutorials by dean",
-    icon: YOUTUBE_ICON,
-    iconType: "icon",
-    link: LOOP_TUTORIALS_LINK,
     active: false
   }
 ];
