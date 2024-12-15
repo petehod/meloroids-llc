@@ -1,10 +1,5 @@
 import { LINKS } from "@repo/assets/links";
-import {
-  CHART_ICON,
-  DICE_ICON,
-  DOWNLOAD_ICON,
-  GUITAR_ICON
-} from "@repo/ui/icons";
+import { CHART_ICON, DICE_ICON, GUITAR_ICON, MAIL_ICON } from "@repo/ui/icons";
 
 type LinkBlock = {
   title: string;
@@ -15,10 +10,10 @@ type LinkBlock = {
 };
 export const linkBlocks: LinkBlock[] = [
   {
-    title: "All my guitar loops (FREE)",
-    icon: DOWNLOAD_ICON,
+    title: "Weekly loops opt in form",
+    icon: MAIL_ICON,
     iconType: "icon",
-    link: LINKS.expensiveSamplePackLM,
+    link: LINKS.deansListOptIn,
     active: true
   },
   {
@@ -26,7 +21,7 @@ export const linkBlocks: LinkBlock[] = [
     icon: "mdi:dropbox",
     iconType: "icon",
     link: LINKS.deansList,
-    active: false
+    active: true
   },
   {
     title: "Guitar Loop God",

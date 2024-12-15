@@ -9,6 +9,7 @@ export const ABLETON_ICON = "skill-icons:ableton-dark";
 export const NOTION_ICON = "skill-icons:notion-dark";
 export const DOWNLOAD_ICON = `mingcute:download-fill`;
 export const CHART_ICON = `mdi:chart-line`;
+export const MAIL_ICON = `mdi:email`;
 // TODO: move to UI
 export const SOCIAL_MEDIA_ICONS: { icon: string; link: string }[] = [
   { icon: TIK_TOKE_ICON, link: LINKS.tikTok },
