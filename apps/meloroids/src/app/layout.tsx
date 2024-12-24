@@ -4,6 +4,7 @@ import "@repo/ui/styles.css";
 import { GA_ID } from "@repo/assets/googleAnalytics";
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { AuthProvider } from "../context/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Meloroids",
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${plus_jakarta_sans.className} flex items-center justify-center min-h-screen home gradient-bg p-2`}
       >
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ export default function AlbumPage() {
   const { id: albumID } = useParams();
 
   const album = ALBUM_DATA.find((a) => a.id === albumID)!;
-  const songs = SONGS.filter((song) => song.album === albumID);
+  const songs = SONGS.filter((song) => song.id === albumID);
   return (
     <div className="w-full overflow-x-scroll">
       <Button as="a" containerStyles="max-w-64" href="/albums">

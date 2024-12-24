@@ -1,25 +1,16 @@
 import { getChromaticChords } from "./returnChromaticChords.js";
 import { majorKeys, minorKeys } from "./notesInKeys.js";
 import { getNumeralInfo } from "./numeralMappings.js";
-
-export interface ProgressionInAllKeys {
-  key: string;
-  numerals: string[];
-}
-
-/**
- * The info needed to calculate the progression in every key
- */
-export interface EnteredChordProgression {
-  numerals: string;
-  is_major: boolean;
-}
+import {
+  ChordProgression,
+  ProgressionInAllKeys
+} from "@repo/common/chordProgression";
 
 /**
  *  Returns the chord progression in all keys based upon `numerals` and `is_major`
  */
 export const generateProgressionsInAllKeys = (
-  enteredChordProgression: EnteredChordProgression
+  enteredChordProgression: ChordProgression
 ): ProgressionInAllKeys[] => {
   const splitNumerals = enteredChordProgression.numerals.split(" ");
 

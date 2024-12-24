@@ -11,6 +11,9 @@
       "default": "./dist/generateChords.js"
     }
   },
+  "dependencies": {
+    "@repo/common": "*"
+  },
   "devDependencies": {
     "@repo/typescript-config": "*",
     "typescript": "latest"

@@ -4,19 +4,21 @@ import { Label } from "@repo/ui/Label";
 import { Input } from "@repo/ui/Input";
 import { Button } from "@repo/ui/Button";
 import { useCallback, useState } from "react";
-import {
-  generateProgressionsInAllKeys,
-  ProgressionInAllKeys,
-  type EnteredChordProgression
-} from "@repo/chord-progressions/generate-progressions";
+
 import { motion } from "framer-motion";
 import { ChordsInAllKeysContainer } from "../components/ChordsInAllKeysContainer";
+import {
+  ChordProgression,
+  ProgressionInAllKeys
+} from "@repo/common/chordProgression";
+import { generateProgressionsInAllKeys } from "@repo/chord-progressions/generate-progressions";
 export default function Home() {
   const [chordsInAllKeys, setChordsInAllKeys] = useState<
     ProgressionInAllKeys[]
   >([]);
   const [chordProgressionInfo, setChordProgressionInfo] =
-    useState<EnteredChordProgression>({
+    useState<ChordProgression>({
+      id: "",
       numerals: "",
       is_major: false
     });
@@ -88,14 +90,14 @@ export default function Home() {
                   ? undefined
                   : String(
                       chordProgressionInfo[
-                        field.sharedValue as keyof EnteredChordProgression
+                        field.sharedValue as keyof ChordProgression
                       ]
                     )
               }
               checked={
                 field.type === "checkbox"
                   ? chordProgressionInfo[
-                      field.sharedValue as keyof EnteredChordProgression
+                      field.sharedValue as keyof ChordProgression
                     ] === true
                   : undefined
               }

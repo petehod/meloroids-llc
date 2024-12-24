@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
 import { useModal } from "@repo/ui/useModal";
-import type { Song } from "../data/songs.data";
+import type { Song } from "@repo/common/song";
 import { SongTableRow } from "./SongTableRow";
 import { SongDetailsModal } from "./SongModal/SongDetailsModal";
 

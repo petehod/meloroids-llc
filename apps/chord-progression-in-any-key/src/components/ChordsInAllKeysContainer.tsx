@@ -1,8 +1,8 @@
 import { BackgroundColors } from "@repo/ui/Colors";
 import { YayaText } from "@repo/ui/YayaText";
 import { formatMajorMinor } from "../utils/textFormat.utils";
-import { ProgressionInAllKeys } from "@repo/chord-progressions/generate-progressions";
 import { EmphasizedText } from "@repo/ui/EmphasizeText";
+import { ProgressionInAllKeys } from "@repo/common/chordProgression";
 interface ChordsInAllKeysContainerProps {
   chordsInAllKeys: ProgressionInAllKeys[];
   rootNumerals: string;

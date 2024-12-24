@@ -1,0 +1,35 @@
+{
+  "name": "@repo/firebase",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./initFirebase": {
+      "types": "./src/initFirebase.ts",
+      "default": "./dist/initFirebase.js"
+    },
+    "./firestoreService": {
+      "types": "./src/services/firestore.service.ts",
+      "default": "./dist/services/firestore.service.js"
+    },
+    "./authService": {
+      "types": "./src/services/auth.service.ts",
+      "default": "./dist/services/auth.service.js"
+    }
+  },
+  "dependencies": {
+    "@repo/common": "*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "typescript": "latest"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

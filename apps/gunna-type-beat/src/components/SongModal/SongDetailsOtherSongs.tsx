@@ -1,5 +1,5 @@
 import { YayaText } from "@repo/ui/YayaText";
-import type { Song } from "../../data/songs.data";
+import type { Song } from "@repo/common/song";
 import { EmphasizedText } from "../EmphasizeText";
 
 interface SongDetailsOtherSongsProps {

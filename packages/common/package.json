@@ -9,6 +9,26 @@
     "./user": {
       "types": "./src/validators/user.validator.ts",
       "default": "./dist/validators/user.validator.js"
+    },
+    "./song": {
+      "types": "./src/validators/song.validator.ts",
+      "default": "./dist/validators/song.validator.js"
+    },
+    "./album": {
+      "types": "./src/validators/album.validator.ts",
+      "default": "./dist/validators/album.validator.js"
+    },
+    "./artist": {
+      "types": "./src/validators/artist.validator.ts",
+      "default": "./dist/validators/artist.validator.js"
+    },
+    "./chordProgression": {
+      "types": "./src/validators/chordProgression.validator.ts",
+      "default": "./dist/validators/chordProgression.validator.js"
+    },
+    "./firebaseCollections": {
+      "types": "./src/collections/firebaseCollections.ts",
+      "default": "./dist/collections/firebaseCollections.js"
     }
   },
   "devDependencies": {
@@ -22,6 +42,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "uuid": "^11.0.3",
     "zod": "^3.24.1"
   }
 }

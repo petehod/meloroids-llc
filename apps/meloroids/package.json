@@ -9,17 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@repo/ui": "*",
+    "@next/third-parties": "^14.2.5",
     "@repo/assets": "*",
     "@repo/common": "*",
-    "@next/third-parties": "^14.2.5",
+    "@repo/firebase": "*",
+    "@repo/ui": "*",
     "@sendgrid/client": "^8.1.3",
     "@sendgrid/mail": "^8.1.3",
     "env": "^0.0.2",
+    "firebase": "^11.1.0",
     "framer-motion": "^11.2.10",
     "next": "^14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "uuid": "^11.0.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

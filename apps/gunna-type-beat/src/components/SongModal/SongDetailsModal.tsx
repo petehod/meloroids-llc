@@ -1,7 +1,7 @@
 import { Modal } from "@repo/ui/Modal";
 import { memo } from "react";
 import { YayaText } from "@repo/ui/YayaText";
-import type { Song } from "../../data/songs.data";
+import type { Song } from "@repo/common/song";
 import { DataService } from "../../services/data.services";
 import { SongDetailsParameters } from "./SongDetailsParameters";
 import { SongDetailsProgressionInAllKeys } from "./SongDetailsProgressionInAllKeys";
@@ -15,7 +15,7 @@ interface SongDetailsModalProps {
 
 export const SongDetailsModal = memo(
   ({ song, onClose }: SongDetailsModalProps) => {
-    const { chords, artists, key, name, progression, tempo, youtube } = song;
+    const { chords, artists, key, name, progression, tempo, youtubeURL } = song;
     const { numerals } = progression;
     const frequency = DataService.singleChordProgressionFrequency(numerals);
     const otherSongs = DataService.songsWithProgression(numerals, name);
@@ -38,7 +38,7 @@ export const SongDetailsModal = memo(
             <YayaText type="h3">{artists.join(", ")}</YayaText>
           </div>
 
-          <SongDetailsIFrame source={youtube} />
+          <SongDetailsIFrame source={youtubeURL} />
 
           <SongDetailsParameters parameters={PARAMETERS} />
 
