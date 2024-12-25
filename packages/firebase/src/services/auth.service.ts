@@ -4,7 +4,8 @@ import {
   deleteUser,
   signInWithEmailAndPassword,
   UserCredential,
-  User
+  User,
+  signOut
 } from "firebase/auth";
 import { auth } from "../initFirebase";
 
@@ -36,6 +37,15 @@ export const AuthService = {
       console.log("User deleted successfully");
     } catch (error) {
       console.error("Error deleting user:", error);
+      throw error;
+    }
+  },
+  logout: async (): Promise<void> => {
+    try {
+      await signOut(auth);
+      console.log("User signed out successfully");
+    } catch (error) {
+      console.error("Error signing out user:", error);
       throw error;
     }
   }

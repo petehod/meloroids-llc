@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
-import { useAuth } from "../context/AuthProvider";
 import { useEffect } from "react";
+import { useAuth } from "../context/AuthProvider";
 
 export const useRedirectLoggedInUser = () => {
   const router = useRouter();
@@ -8,7 +8,7 @@ export const useRedirectLoggedInUser = () => {
 
   useEffect(() => {
     if (user) {
-      router.push("/");
+      router.push("/admin");
     }
   }, [user, router]);
 };

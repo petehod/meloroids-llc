@@ -6,7 +6,8 @@ import React, {
   useMemo,
   useState
 } from "react";
-import { onAuthStateChanged, User } from "firebase/auth";
+import type { User } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@repo/firebase/initFirebase";
 
 const AuthContext = createContext<{ user: User | null; loading: boolean }>({
@@ -24,7 +25,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const value = useMemo(() => {

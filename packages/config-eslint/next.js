@@ -45,6 +45,7 @@ module.exports = {
     "import/no-default-export": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "unicorn/filename-case": "off",
     "no-nested-ternary": "off",

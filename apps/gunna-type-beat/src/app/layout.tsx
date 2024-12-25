@@ -1,14 +1,13 @@
-import { Header } from "@repo/ui/Header";
 import "./globals.css";
 import "@repo/ui/styles.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import Link from "next/link";
 import { ContentContainer } from "@repo/ui/ContentContainer";
-import { YayaText } from "@repo/ui/YayaText";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Footer } from "../components/Footer";
 import { GA_ID } from "@repo/assets/googleAnalytics";
+import { Footer } from "../components/Footer";
+import { GunnaTypeBeatHeader } from "../components/GunnaTypeBeatHeader";
+import { AuthProvider } from "../context/AuthProvider";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -18,17 +17,6 @@ export const metadata: Metadata = {
   title,
   description: "Song data from Gunna's discography"
 };
-
-const NAV_LINKS = [
-  {
-    href: "/",
-    text: "Home"
-  },
-  {
-    href: "/albums",
-    text: "Albums"
-  }
-];
 
 export default function RootLayout({
   children
@@ -43,27 +31,11 @@ export default function RootLayout({
       <body
         className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >
-        <Header
-          logo={
-            <Link href="/">
-              <YayaText textSize="2" type="h1">
-                {title}
-              </YayaText>
-            </Link>
-          }
-          mobileFooter={<Footer />}
-          navLinks={NAV_LINKS.map((link) => (
-            <Link
-              className="w-full h-full px-4 flex items-center justify-center flex-1"
-              href={link.href}
-              key={link.text}
-            >
-              {link.text}
-            </Link>
-          ))}
-        />
-        <ContentContainer> {children}</ContentContainer>
-        <Footer />
+        <AuthProvider>
+          <GunnaTypeBeatHeader title={title} />
+          <ContentContainer> {children}</ContentContainer>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

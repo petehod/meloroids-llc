@@ -1,13 +1,14 @@
 "use client";
-import { Form } from "@repo/ui/Form";
-import { Input } from "@repo/ui/Input";
-import { Label } from "@repo/ui/Label";
-import { Button } from "@repo/ui/Button";
-import { useCallback, useState } from "react";
 import { AuthService } from "@repo/firebase/authService";
+import { Button } from "@repo/ui/Button";
+import { Form } from "@repo/ui/Form";
+import { Label } from "@repo/ui/Label";
 import { useRouter } from "next/navigation";
+import { Input } from "@repo/ui/Input";
+import { useState, useCallback } from "react";
 import { useRedirectLoggedInUser } from "../../hooks/useRedirectLoggedInUser";
-export default function Admin() {
+
+export const LoginForm = () => {
   const router = useRouter();
   useRedirectLoggedInUser();
 
@@ -29,9 +30,7 @@ export default function Admin() {
 
       await AuthService.signIn(email, password);
 
-      console.log("Successfully logged in!");
-
-      router.push("/");
+      router.push("/admin");
     },
 
     [loginInfo, router]
@@ -39,35 +38,35 @@ export default function Admin() {
 
   return (
     <Form
-      onSubmit={handleSubmit}
       backgroundColor="bg-dark"
-      title="Login"
       button={<Button type="submit">Submit</Button>}
+      onSubmit={handleSubmit}
+      title="Login"
     >
       <>
-        <Label text="Email" htmlFor="email" />
+        <Label htmlFor="email" text="Email" />
         <Input
-          placeholder="yayadean38@gmail.com"
-          type="email"
-          required
-          name="email"
           id="email"
-          value={loginInfo.email}
+          name="email"
           onChange={handleChange} // Attach the generic handleChange
+          placeholder="yayadean38@gmail.com"
+          required
+          type="email"
+          value={loginInfo.email}
         />
       </>
       <>
-        <Label text="Password" htmlFor="password" />
+        <Label htmlFor="password" text="Password" />
         <Input
-          placeholder="helloWorld"
-          type="password"
-          required
-          name="password"
           id="password"
-          value={loginInfo.password}
+          name="password"
           onChange={handleChange} // Attach the generic handleChange
+          placeholder="helloWorld"
+          required
+          type="password"
+          value={loginInfo.password}
         />
       </>
     </Form>
   );
-}
+};
