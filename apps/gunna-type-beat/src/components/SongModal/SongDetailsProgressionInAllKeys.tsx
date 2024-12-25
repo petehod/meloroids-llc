@@ -1,6 +1,5 @@
 import type { BackgroundColors, TextColors } from "@repo/ui/Colors";
 import { YayaText } from "@repo/ui/YayaText";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { ChordProgression } from "@repo/common/chordProgression";
 import { generateProgressionsInAllKeys } from "@repo/chord-progressions/generate-progressions";
 import { isOddIndex } from "../../utils/index.utils";

@@ -6,11 +6,9 @@ import { Label } from "@repo/ui/Label";
 import { useRouter } from "next/navigation";
 import { Input } from "@repo/ui/Input";
 import { useState, useCallback } from "react";
-import { useRedirectLoggedInUser } from "../../hooks/useRedirectLoggedInUser";
 
 export const LoginForm = () => {
   const router = useRouter();
-  useRedirectLoggedInUser();
 
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
 
@@ -39,7 +37,11 @@ export const LoginForm = () => {
   return (
     <Form
       backgroundColor="bg-dark"
-      button={<Button type="submit">Submit</Button>}
+      button={
+        <Button maxWidth="100%" type="submit">
+          Submit
+        </Button>
+      }
       onSubmit={handleSubmit}
       title="Login"
     >
@@ -48,8 +50,8 @@ export const LoginForm = () => {
         <Input
           id="email"
           name="email"
-          onChange={handleChange} // Attach the generic handleChange
-          placeholder="yayadean38@gmail.com"
+          onChange={handleChange}
+          placeholder="yaya@gmail.com"
           required
           type="email"
           value={loginInfo.email}
@@ -58,9 +60,10 @@ export const LoginForm = () => {
       <>
         <Label htmlFor="password" text="Password" />
         <Input
+          autoComplete="current-password"
           id="password"
           name="password"
-          onChange={handleChange} // Attach the generic handleChange
+          onChange={handleChange}
           placeholder="helloWorld"
           required
           type="password"
