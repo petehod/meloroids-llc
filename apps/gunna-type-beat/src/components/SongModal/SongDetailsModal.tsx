@@ -15,8 +15,10 @@ interface SongDetailsModalProps {
 
 export const SongDetailsModal = memo(
   ({ song, onClose }: SongDetailsModalProps) => {
-    const { chords, artists, key, name, progression, tempo, youtubeURL } = song;
-    const { numerals } = progression;
+    const { chords, artistIds, key, name, tempo, youtubeURL } = song;
+
+    const numerals = "I IV V";
+    const tempProgression = { id: "1", numerals, is_major: true };
     const frequency = DataService.singleChordProgressionFrequency(numerals);
     const otherSongs = DataService.songsWithProgression(numerals, name);
     const keyNoteName = song.key.split(" ")[0]; // I.E. C# rather than C# Minor
@@ -35,7 +37,7 @@ export const SongDetailsModal = memo(
         <div className=" text-white py-4 h-full rounded ">
           <div className="mb-6">
             <YayaText type="h2">{name}</YayaText>
-            <YayaText type="h3">{artists.join(", ")}</YayaText>
+            <YayaText type="h3">{artistIds.join(", ")}</YayaText>
           </div>
 
           <SongDetailsIFrame source={youtubeURL} />
@@ -45,7 +47,7 @@ export const SongDetailsModal = memo(
           <SongDetailsOtherSongs numerals={numerals} otherSongs={otherSongs} />
 
           <SongDetailsProgressionInAllKeys
-            progression={progression}
+            progression={tempProgression}
             songKey={keyNoteName}
           />
         </div>

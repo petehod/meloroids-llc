@@ -7,9 +7,9 @@ export const SongSchema = z.object({
   key: z.string(),
   name: z.string(),
   youtubeURL: z.string().url(),
-  artists: z.array(z.string()),
-  chords: z.array(z.string()),
-  progression: ChordProgressionSchema,
+  artistIds: z.array(z.string()),
+  chords: z.array(z.string()), // Individual chords as string e.g. "C#-", "Bb"
+  progressionIds: z.array(z.string()),
   albumId: z.string()
 });
 

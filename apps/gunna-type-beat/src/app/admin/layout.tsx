@@ -14,8 +14,7 @@ export default function AdminLayout({
 
   useEffect(() => {
     if (loading) return undefined;
-    else if (firestoreUser?.isAdmin) router.push("/admin");
-    else router.push("/admin/login");
+    else if (!firestoreUser?.isAdmin) router.push("/");
   }, [firestoreUser?.isAdmin, loading, router, user]);
 
   return children;

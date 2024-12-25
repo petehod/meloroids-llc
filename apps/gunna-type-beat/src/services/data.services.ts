@@ -1,16 +1,19 @@
 import { SONGS } from "../data/songs.data";
 
+// TODO: Fix this
 export const DataService = {
   calculateChordProgressionFrequencies: () => {
     const totalSongs = SONGS.length;
 
-    const progressionFrequency = SONGS.reduce<Record<string, number>>(
-      (acc, { progression }) => {
-        acc[progression.numerals] = (acc[progression.numerals] || 0) + 1;
-        return acc;
-      },
-      {}
-    );
+    const progressionFrequency = { "I IV V": 10 };
+
+    // const progressionFrequency = SONGS.reduce<Record<string, number>>(
+    //   (acc, { progression }) => {
+    //     acc[progression.numerals] = (acc[progression.numerals] || 0) + 1;
+    //     return acc;
+    //   },
+    //   {}
+    // );
 
     return Object.entries(progressionFrequency).map(([progression, count]) => ({
       progression,
@@ -26,9 +29,7 @@ export const DataService = {
   },
   songsWithProgression: (chordProgression: string, originalSong: string) => {
     return SONGS.filter(
-      (song) =>
-        song.progression.numerals === chordProgression &&
-        song.name !== originalSong
+      (song) => chordProgression === "I IV V" && song.name !== originalSong
     );
   }
 };

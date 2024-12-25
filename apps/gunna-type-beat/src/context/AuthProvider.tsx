@@ -9,7 +9,7 @@ import React, {
 import type { User } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@repo/firebase/initFirebase";
-import type { User as FirebaseUser } from "@repo/common/user";
+import { type User as FirebaseUser } from "@repo/common/user";
 import { FirestoreService } from "@repo/firebase/firestoreService";
 
 const AuthContext = createContext<{
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             "users"
           );
 
-          if (userDoc) setFirestoreUser(userDoc);
+          if (userDoc) setFirestoreUser(userDoc as FirebaseUser);
           else throw new Error("No Firestore user found for this UID.");
         } catch (error) {
           throw new Error("Error fetching Firestore user:");

@@ -30,16 +30,13 @@ export const FirestoreService = {
   },
 
   // READ
-  readDoc: async (
-    docId: string,
-    collection: FirebaseCollections
-  ): Promise<ValidFirebaseDoc | undefined> => {
+  readDoc: async (docId: string, collection: FirebaseCollections) => {
     const docRef = doc(db, collection, docId);
 
     try {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        return docSnap.data() as ValidFirebaseDoc;
+        return docSnap.data();
       } else {
         console.log(`No document found in ${collection} with ID: ${docId}`);
         return undefined;

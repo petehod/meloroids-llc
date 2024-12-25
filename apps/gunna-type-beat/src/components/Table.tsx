@@ -15,6 +15,9 @@ export const Table = memo(
     const [selectedSong, setSelectedSong] = useState<Song | null>(null);
     const { modalOpen, openModal, closeModal } = useModal();
 
+    // TODO: add a query to the progression
+    const tempProgression = "I IV V";
+
     const handleClick = (song: Song) => () => {
       openModal();
       setSelectedSong(song);
@@ -40,7 +43,7 @@ export const Table = memo(
                 key={`${song.name} ${Math.random()}`}
                 name={song.name}
                 onClick={handleClick(song)}
-                progression={song.progression.numerals}
+                progression={tempProgression} // FIXME
                 songKey={song.key}
                 tempo={song.tempo}
               />
