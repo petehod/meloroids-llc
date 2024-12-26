@@ -1,5 +1,5 @@
 import { LINKS } from "@repo/assets/links";
-import { CHART_ICON, DICE_ICON, GUITAR_ICON, MAIL_ICON } from "@repo/ui/icons";
+import { CHART_ICON, DICE_ICON, GUITAR_ICON } from "@repo/ui/icons";
 
 type LinkBlock = {
   title: string;
@@ -10,17 +10,17 @@ type LinkBlock = {
 };
 export const linkBlocks: LinkBlock[] = [
   {
-    title: "Weekly loops opt in form",
-    icon: MAIL_ICON,
+    title: "[FREE] Wun of One Sample Pack (Gunna, Nocap, Polo G)",
+    icon: GUITAR_ICON,
     iconType: "icon",
-    link: LINKS.deansListOptIn,
+    link: LINKS.wunOfOneSamples,
     active: true
   },
   {
-    title: "All my loops (Dropbox link)",
-    icon: "mdi:dropbox",
+    title: "[FREE] Wun of One Starter Pack (Gunna, Nocap, Polo G)",
+    icon: GUITAR_ICON,
     iconType: "icon",
-    link: LINKS.deansList,
+    link: LINKS.wunOfOneStarters,
     active: true
   },
   {
