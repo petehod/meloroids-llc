@@ -11,6 +11,7 @@
   "dependencies": {
     "@repo/ui": "*",
     "@repo/assets": "*",
+    "@repo/common": "*",
     "@next/third-parties": "^14.2.5",
     "@sendgrid/client": "^8.1.3",
     "@sendgrid/mail": "^8.1.3",
