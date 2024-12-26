@@ -14,7 +14,7 @@ type MotionDivProps = HTMLMotionProps<"div"> &
 type MotionAnchorProps = HTMLMotionProps<"a"> &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-type CardProps = CardBaseProps & (MotionDivProps | MotionAnchorProps);
+export type CardProps = CardBaseProps & (MotionDivProps | MotionAnchorProps);
 
 export const Card = memo<CardProps>(
   ({ children, href, containerStyles, ...props }) => {

@@ -5,7 +5,7 @@ import { v4 } from "uuid";
  * `generateProgressionsInAllKeys` gets called on the frontend
  */
 export const ChordProgressionSchema = z.object({
-  id: z.string().default(() => v4()),
+  id: z.string(),
   numerals: z.string(), // numerals should be formatted with a - between numerals e.g. I-IV-V
   is_major: z.boolean()
 });

@@ -3,7 +3,9 @@ import { z } from "zod";
 export const AlbumSchema = z.object({
   id: z.string(),
   title: z.string(),
-  artwork: z.string().url(),
+  artistIds: z.array(z.string()),
+  artworkPath: z.string(),
+  artworkURL: z.string().optional(),
   songIds: z.array(z.string())
 });
 

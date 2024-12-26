@@ -15,18 +15,22 @@ interface SongDetailsModalProps {
 
 export const SongDetailsModal = memo(
   ({ song, onClose }: SongDetailsModalProps) => {
-    const { chords, artistIds, key, name, tempo, youtubeURL } = song;
+    const { chords, artistIds, key, name, tempo, youtubeURL, progressionIds } =
+      song;
 
     const numerals = "I IV V";
     const tempProgression = { id: "1", numerals, is_major: true };
-    const frequency = DataService.singleChordProgressionFrequency(numerals);
-    const otherSongs = DataService.songsWithProgression(numerals, name);
+    // const frequency = DataService.singleChordProgressionFrequency(numerals);
+    // const otherSongs = DataService.songsWithProgression(numerals, name);
     const keyNoteName = song.key.split(" ")[0]; // I.E. C# rather than C# Minor
+
+    const frequency = { frequency: 10 };
+    const otherSongs = [];
 
     const PARAMETERS = [
       `Tempo: ${tempo} bpm`,
       `Key: ${key}`,
-      `Chords: ${chords.join("  ")}`,
+      `Chords: ${chords}`,
       `Progression: ${numerals}`,
       `   - This chord progression is used in ${frequency?.frequency} of
             the songs from one of wun` // TODO: make dynamic with other albums

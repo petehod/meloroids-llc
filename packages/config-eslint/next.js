@@ -55,6 +55,7 @@ module.exports = {
     "eslint-comments/require-description": ["off", { ignore: [] }],
     "react/function-component-definition": "off",
     "react/jsx-no-leaked-render": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "no-console": "warn"
   }
 };

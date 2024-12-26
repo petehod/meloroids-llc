@@ -9,6 +9,10 @@ import { ArtistSchema, type Artist } from "@repo/common/artist";
 import { v4 } from "uuid";
 import { StorageService } from "@repo/firebase/storageService";
 import { FirestoreService } from "@repo/firebase/firestoreService";
+import {
+  useHandleFormChange,
+  useHandleFormSubmit
+} from "../../../hooks/useForm";
 
 /**
  * This page is purely for creating a new artist with an image.
@@ -19,41 +23,33 @@ export default function ArtistsAdmin() {
 
   const [newArtist, setNewArtist] = useState<Partial<Artist>>({
     albumIds: [], // Comes from other collections
-    name: ""
+    name: "",
+    songsIds: []
   });
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, files } = e.target;
-    if (files) {
-      setImage(files[0]);
-      return;
-    }
-    setNewArtist((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  }, []);
+  const handleChange = useHandleFormChange({
+    setNewData: setNewArtist,
+    setImage
+  });
 
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!image) return;
+  const onSubmit = useCallback(async () => {
+    if (!image) return;
 
-      const newArtistId = v4();
-      const blobPath = `/artists/${newArtistId}/${v4()}`;
+    const newArtistId = v4();
+    const blobPath = `/artists/${newArtistId}/${v4()}`;
 
-      const artist = ArtistSchema.parse({
-        id: newArtistId,
-        imagePath: blobPath,
-        ...newArtist
-      });
+    const artist = ArtistSchema.parse({
+      id: newArtistId,
+      imagePath: blobPath,
+      ...newArtist
+    });
 
-      await StorageService.uploadFile(image, blobPath);
+    await StorageService.uploadFile(image, blobPath);
 
-      await FirestoreService.createDoc(artist, "artists");
-    },
-    [image, newArtist]
-  );
+    await FirestoreService.createDoc(artist, "artists");
+  }, [image, newArtist]);
+
+  const handleSubmit = useHandleFormSubmit(onSubmit);
 
   return (
     <ContentContainer>

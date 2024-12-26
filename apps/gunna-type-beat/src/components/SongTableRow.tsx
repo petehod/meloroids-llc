@@ -1,13 +1,13 @@
 import { memo } from "react";
 import { getColorByFrequency } from "../utils/progressionFrequency.utils";
 import { useHandleKeyDown } from "../hooks/useHandleKeyDown";
-import { DataService } from "../services/data.services";
+import { formatChordsString } from "../utils/textFormat.utils";
 
 interface SongTableRowProps {
   name: string;
-  tempo: number;
+  tempo: string;
   songKey: string;
-  chords: string[];
+  chords: string;
   progression: string;
 
   onClick?: () => void;
@@ -24,11 +24,12 @@ export const SongTableRow = memo(
     onClick,
     gridCols = "grid-cols-6"
   }: SongTableRowProps) => {
-    const pfFrequency =
-      DataService.singleChordProgressionFrequency(progression);
+    // const pfFrequency =
+    //   DataService.singleChordProgressionFrequency(progression);
 
     const handleKeyDown = useHandleKeyDown(onClick);
-    const pfToNumber = parseInt(pfFrequency?.frequency.split("%")[0] ?? "");
+    // const pfToNumber = parseInt(pfFrequency?.frequency.split("%")[0] ?? "");
+    const pfToNumber = 10;
 
     const sliderColor = getColorByFrequency(pfToNumber);
 
@@ -45,9 +46,7 @@ export const SongTableRow = memo(
         <div>{songKey}</div>
 
         <div className="flex flex-wrap gap-2">
-          {chords.map((chord) => (
-            <span key={`${chord} ${Math.random()} `}>{chord}</span>
-          ))}
+          <span>{formatChordsString(chords)}</span>
         </div>
 
         <div>
@@ -59,7 +58,7 @@ export const SongTableRow = memo(
               style={{ width: `${pfToNumber * 4}%` }}
             />
           </div>
-          {pfFrequency?.frequency}
+          {10}
         </div>
       </div>
     );

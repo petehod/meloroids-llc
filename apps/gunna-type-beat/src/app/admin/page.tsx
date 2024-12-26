@@ -17,6 +17,10 @@ export default function Admin() {
     {
       href: "/admin/songs",
       text: "Songs"
+    },
+    {
+      href: "/admin/albums",
+      text: "Albums"
     }
   ];
 

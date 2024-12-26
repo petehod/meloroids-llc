@@ -4,7 +4,10 @@ import {
   setDoc,
   updateDoc,
   deleteDoc,
-  DocumentData
+  DocumentData,
+  collection,
+  getDocs,
+  onSnapshot
 } from "firebase/firestore";
 import { db } from "../initFirebase";
 import {
@@ -46,7 +49,57 @@ export const FirestoreService = {
       return undefined;
     }
   },
+  // READ ALL DOCUMENTS
+  readAllDocs: async (
+    collectionName: FirebaseCollections
+  ): Promise<ValidFirebaseDoc[] | undefined> => {
+    try {
+      const collectionRef = collection(db, collectionName);
+      const querySnapshot = await getDocs(collectionRef);
 
+      const docs = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      })) as ValidFirebaseDoc[];
+
+      console.log(`Fetched ${docs.length} documents from ${collectionName}`);
+      return docs;
+    } catch (error) {
+      console.error(`
+        Error reading all documents from ${collectionName}:,
+        ${error}`);
+      return undefined;
+    }
+  },
+  // SUBSCRIBE TO ALL DOCUMENTS
+  subscribeToAllDocs: (
+    collectionName: FirebaseCollections,
+    callback: (docs: ValidFirebaseDoc[]) => void
+  ) => {
+    try {
+      const collectionRef = collection(db, collectionName);
+
+      const unsubscribe = onSnapshot(
+        collectionRef,
+        (querySnapshot) => {
+          const docs = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+          })) as ValidFirebaseDoc[];
+
+          console.log(`Real-time update received for ${collectionName}`);
+          callback(docs);
+        },
+        (error) => {
+          console.error(`Error listening to ${collectionName}:`, error);
+        }
+      );
+
+      return unsubscribe; // Return the unsubscribe function to stop the listener when needed
+    } catch (error) {
+      console.error(`Error setting up listener for ${collectionName}:`, error);
+    }
+  },
   // UPDATE
   updateDoc: async (
     docId: string,

@@ -1,28 +1,38 @@
 "use client";
 import { YayaText } from "@repo/ui/YayaText";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Button } from "@repo/ui/Button";
-import { ALBUM_DATA } from "../../../data/albums.data";
-import { SONGS } from "../../../data/songs.data";
 import { Table } from "../../../components/Table";
-
-const column = ["Song Name", "Tempo", "Key", "Chords", "Chord Progression"];
+import { useGetAlbum } from "../../../hooks/useAlbums";
+import FirebaseImage from "../../../components/Image/FirebaseImage";
+import { useGetSongsByIds } from "../../../hooks/useGetSongsInAnAlbum";
+import { TABLE_COLUMN_TITLES } from "../../../components/constants/table.constants";
 
 export default function AlbumPage() {
-  const { id: albumID } = useParams();
+  const { id: albumID } = useParams<{ id: string }>();
 
-  const album = ALBUM_DATA.find((a) => a.id === albumID)!;
-  const songs = SONGS.filter((song) => song.id === albumID);
+  const album = useGetAlbum(albumID);
+  const songs = useGetSongsByIds(album?.songIds);
+  console.log("men", songs);
+  if (!album) return null;
   return (
     <div className="w-full overflow-x-scroll">
       <Button as="a" containerStyles="max-w-64" href="/albums">
         Albums
       </Button>
       <YayaText type="h2">{album.title}</YayaText>
-      <Image alt={album.alt} height={200} src={album.source} width={200} />
+      <FirebaseImage
+        alt={`Artwork for the album ${album.title}`}
+        filePath={album.artworkPath}
+      />
 
-      <Table columnTitles={column} gridCols="grid-cols-5" songs={songs} />
+      {songs && (
+        <Table
+          columnTitles={TABLE_COLUMN_TITLES}
+          gridCols="grid-cols-5"
+          songs={songs}
+        />
+      )}
     </div>
   );
 }

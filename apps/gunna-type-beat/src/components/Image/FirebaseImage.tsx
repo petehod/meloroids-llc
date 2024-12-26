@@ -3,7 +3,7 @@ import { StorageService } from "@repo/firebase/storageService";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
 
-type FirebaseImageProps = Partial<ImageProps> & {
+export type FirebaseImageProps = Partial<ImageProps> & {
   filePath: string;
   alt: string;
 };
