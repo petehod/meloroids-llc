@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
 import { useModal } from "@repo/ui/useModal";
 import type { Song } from "@repo/common/song";
+import { DataService } from "../services/data.services";
 import { SongTableRow } from "./SongTableRow";
 import { SongDetailsModal } from "./SongModal/SongDetailsModal";
 
@@ -14,9 +15,10 @@ export const Table = memo(
   ({ columnTitles, songs, gridCols = "grid-cols-5" }: TableProps) => {
     const [selectedSong, setSelectedSong] = useState<Song | null>(null);
     const { modalOpen, openModal, closeModal } = useModal();
+    const progressionFrequencies =
+      DataService.calculateChordProgressionFrequency(songs);
 
     // TODO: add a query to the progression
-    const tempProgression = "I IV V";
 
     const handleClick = (song: Song) => () => {
       openModal();
@@ -38,12 +40,15 @@ export const Table = memo(
           {songs.map((song) => {
             return (
               <SongTableRow
+                chordProgressionFrequency={
+                  progressionFrequencies?.[song.progressionIds[0]]
+                }
                 chords={song.chords}
                 gridCols={gridCols}
                 key={`${song.name} ${Math.random()}`}
                 name={song.name}
                 onClick={handleClick(song)}
-                progression={tempProgression} // FIXME
+                progressionIds={song.progressionIds} // FIXME
                 songKey={song.key}
                 tempo={song.tempo}
               />

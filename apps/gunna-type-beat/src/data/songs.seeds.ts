@@ -1,6 +1,13 @@
 import type { Song } from "@repo/common/song";
 import { v4 } from "uuid";
-import { GUNNA_ID, ONE_OF_WUN_ID } from "./seed.data";
+import {
+  GUNNA_ID,
+  LEON_BRIDGES_ID,
+  NORMANI_ID,
+  OFFSET_ID,
+  ONE_OF_WUN_ID,
+  RODDY_RICCH_ID
+} from "./seed.data";
 import { MINOR_SEED_PROGRESSION_IDS } from "./progressions.seeds";
 
 const ONE_OF_WUN_BOILERPLATE = {
@@ -16,7 +23,7 @@ export const SEED_SONGS: Song[] = [
     tempo: "128",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSeven],
     youtubeURL:
-      "https://www.youtubeURL.com/watch?v=oAdMgexZm1A&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0",
+      "https://www.youtube.com/watch?v=oAdMgexZm1A&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0",
     chords: "C#-,B",
     key: "C# Minor"
   },
@@ -26,7 +33,7 @@ export const SEED_SONGS: Song[] = [
     name: "one of wun",
     tempo: "140",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFour], // i iv
-    youtubeURL: "https://www.youtubeURL.com/watch?v=w_JtBYqMgk8",
+    youtubeURL: "https://www.youtube.com/watch?v=w_JtBYqMgk8",
     chords: "Bb-7,Eb-7",
     key: "Bb Minor"
   },
@@ -37,7 +44,7 @@ export const SEED_SONGS: Song[] = [
     tempo: "130",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFour], // i iv
     youtubeURL:
-      "https://www.youtubeURL.com/watch?v=hAidkjH1WiU&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=3",
+      "https://www.youtube.com/watch?v=hAidkjH1WiU&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=3",
     chords: "E-,A-",
     key: "E Minor"
   },
@@ -48,7 +55,7 @@ export const SEED_SONGS: Song[] = [
     tempo: "134",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSeven], // i bVII
     youtubeURL:
-      "https://www.youtubeURL.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=4",
+      "https://www.youtube.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=4",
     chords: "D#-,C#",
     key: "D# Minor"
   },
@@ -59,7 +66,7 @@ export const SEED_SONGS: Song[] = [
     tempo: "138",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSeven], // i bVII
     youtubeURL:
-      "https://www.youtubeURL.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=5",
+      "https://www.youtube.com/watch?v=bY1kLt4iz94&list=PLnikWbtnBaM6Ey81cj1GGf4W_PDmZ-lH0&index=5",
     chords: "D#-,C#",
     key: "D# Minor"
   },
@@ -68,8 +75,9 @@ export const SEED_SONGS: Song[] = [
     id: v4(),
     name: "prada dem",
     tempo: "120",
+    artistIds: [...ONE_OF_WUN_BOILERPLATE.artistIds, OFFSET_ID],
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenFive], // i bVII v
-    youtubeURL: "https://www.youtubeURL.com/watch?v=Tqjw-H4QyG0",
+    youtubeURL: "https://www.youtube.com/watch?v=Tqjw-H4QyG0",
     chords: "F#-,E,C#-",
     key: "F# Minor"
   },
@@ -79,7 +87,7 @@ export const SEED_SONGS: Song[] = [
     name: "treesh",
     tempo: "130",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenOneFlatSix],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=qaWJMBTnHwg",
+    youtubeURL: "https://www.youtube.com/watch?v=qaWJMBTnHwg",
     chords: "C#-,B,C#-,A",
     key: "C# Minor"
   },
@@ -89,7 +97,7 @@ export const SEED_SONGS: Song[] = [
     name: "on one tonight",
     tempo: "128",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSixFlatThreeFlatSeven],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=5i0GKTp8c1Q",
+    youtubeURL: "https://www.youtube.com/watch?v=5i0GKTp8c1Q",
     chords: "E-,C,G,D",
     key: "E Minor"
   },
@@ -99,7 +107,7 @@ export const SEED_SONGS: Song[] = [
     name: "back in the a",
     tempo: "134",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSix], // i bVI
-    youtubeURL: "https://www.youtubeURL.com/watch?v=jC8_6QxGRjc",
+    youtubeURL: "https://www.youtube.com/watch?v=jC8_6QxGRjc",
     chords: "D-,BbMaj7",
     key: "D Minor"
   },
@@ -109,7 +117,7 @@ export const SEED_SONGS: Song[] = [
     name: "trio",
     tempo: "132",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatThreeOneFour],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=aL4GcLvFFx8",
+    youtubeURL: "https://www.youtube.com/watch?v=aL4GcLvFFx8",
     chords: "C-,Eb,C-,F-",
     key: "C Minor"
   },
@@ -119,7 +127,7 @@ export const SEED_SONGS: Song[] = [
     name: "still prevail",
     tempo: "132",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenFlatSix],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=x6jX7eiNz58",
+    youtubeURL: "https://www.youtube.com/watch?v=x6jX7eiNz58",
     chords: "E-,D,C",
     key: "E Minor"
   },
@@ -129,8 +137,8 @@ export const SEED_SONGS: Song[] = [
     name: "blackjack",
     tempo: "154",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.flatSixFlatSevenOne],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=INpDMPTYryg",
-    chords: "C,D,E-,A-",
+    youtubeURL: "https://www.youtube.com/watch?v=INpDMPTYryg",
+    chords: "C,D,E-",
     key: "E Minor"
   },
   {
@@ -138,8 +146,10 @@ export const SEED_SONGS: Song[] = [
     id: v4(),
     name: "$$$",
     tempo: "160",
+    artistIds: [...ONE_OF_WUN_BOILERPLATE.artistIds, NORMANI_ID],
+
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatThreeFlatSixFlatSeven],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=nUXscMOYRL8",
+    youtubeURL: "https://www.youtube.com/watch?v=nUXscMOYRL8",
     chords: "C-,Eb,Ab,Bb",
     key: "C Minor"
   },
@@ -148,8 +158,10 @@ export const SEED_SONGS: Song[] = [
     id: v4(),
     name: "clear my rain",
     tempo: "98",
+    artistIds: [...ONE_OF_WUN_BOILERPLATE.artistIds, LEON_BRIDGES_ID],
+
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFour],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=IT4KbbIK-wU",
+    youtubeURL: "https://www.youtube.com/watch?v=IT4KbbIK-wU",
     chords: "F#-7,B-9",
     key: "F# Minor"
   },
@@ -159,7 +171,7 @@ export const SEED_SONGS: Song[] = [
     name: "conscience",
     tempo: "160",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSix], // i bVI
-    youtubeURL: "https://www.youtubeURL.com/watch?v=GDPnI4CbyBw",
+    youtubeURL: "https://www.youtube.com/watch?v=GDPnI4CbyBw",
     chords: "E-,Cmaj7",
     key: "E Minor"
   },
@@ -169,7 +181,7 @@ export const SEED_SONGS: Song[] = [
     name: "the time",
     tempo: "154",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenFlatSix],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=rE0lN0snNb8",
+    youtubeURL: "https://www.youtube.com/watch?v=rE0lN0snNb8",
     chords: "E-,D,Cmaj7",
     key: "E Minor"
   },
@@ -178,8 +190,9 @@ export const SEED_SONGS: Song[] = [
     id: v4(),
     name: "let it breathe",
     tempo: "154",
+    artistIds: [...ONE_OF_WUN_BOILERPLATE.artistIds, RODDY_RICCH_ID],
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenFour],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=a0iE4c3nPNM",
+    youtubeURL: "https://www.youtube.com/watch?v=a0iE4c3nPNM",
     chords: "C#-,B,F#-",
     key: "C# Minor"
   },
@@ -199,7 +212,7 @@ export const SEED_SONGS: Song[] = [
     name: "today i did good",
     tempo: "152",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSixFive],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=zhFBTlHzMWQ",
+    youtubeURL: "https://www.youtube.com/watch?v=zhFBTlHzMWQ",
     chords: "C#-,Amaj7,G#-7",
     key: "C# Minor"
   },
@@ -209,7 +222,7 @@ export const SEED_SONGS: Song[] = [
     name: "time reveals, be careful what you wish for",
     tempo: "174",
     progressionIds: [MINOR_SEED_PROGRESSION_IDS.oneFlatSevenFlatSix],
-    youtubeURL: "https://www.youtubeURL.com/watch?v=2zju7-ycNsY",
+    youtubeURL: "https://www.youtube.com/watch?v=2zju7-ycNsY",
     chords: "G-,F,Ebmaj7",
     key: "G Minor"
   }

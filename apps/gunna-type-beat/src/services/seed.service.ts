@@ -4,7 +4,7 @@ import { SongSchema } from "@repo/common/song";
 import { arrayUnion } from "firebase/firestore";
 import { ArtistSchema } from "@repo/common/artist";
 import { AlbumSchema } from "@repo/common/album";
-import { SEED_SONGS } from "../data/songs.seeds.data";
+import { SEED_SONGS } from "../data/songs.seeds";
 import { SEED_PROGRESSIONS } from "../data/progressions.seeds";
 import { GUNNA_ID, ONE_OF_WUN_ID } from "../data/seed.data";
 

@@ -1,15 +1,16 @@
 import { memo } from "react";
 import { getColorByFrequency } from "../utils/progressionFrequency.utils";
 import { useHandleKeyDown } from "../hooks/useHandleKeyDown";
-import { formatChordsString } from "../utils/textFormat.utils";
+import type { ChordProgressionFrequency } from "../services/data.services";
+import { useGetAllProgressions } from "../hooks/useProgressions";
 
 interface SongTableRowProps {
   name: string;
   tempo: string;
   songKey: string;
   chords: string;
-  progression: string;
-
+  progressionIds: string[];
+  chordProgressionFrequency?: ChordProgressionFrequency;
   onClick?: () => void;
   gridCols?: string;
 }
@@ -19,19 +20,23 @@ export const SongTableRow = memo(
     name,
     tempo,
     songKey,
-    chords,
-    progression,
+
+    progressionIds,
     onClick,
+    chordProgressionFrequency,
     gridCols = "grid-cols-6"
   }: SongTableRowProps) => {
-    // const pfFrequency =
-    //   DataService.singleChordProgressionFrequency(progression);
+    const allProgressions = useGetAllProgressions();
+    const thisProgression = allProgressions?.filter(
+      (progression) => progression.id === progressionIds[0]
+    );
 
     const handleKeyDown = useHandleKeyDown(onClick);
-    // const pfToNumber = parseInt(pfFrequency?.frequency.split("%")[0] ?? "");
-    const pfToNumber = 10;
 
-    const sliderColor = getColorByFrequency(pfToNumber);
+    const percentage = chordProgressionFrequency?.percentage ?? 0;
+    const count = chordProgressionFrequency?.count;
+    const sliderColor = getColorByFrequency(percentage);
+    if (!thisProgression) return null;
 
     return (
       <div
@@ -46,19 +51,18 @@ export const SongTableRow = memo(
         <div>{songKey}</div>
 
         <div className="flex flex-wrap gap-2">
-          <span>{formatChordsString(chords)}</span>
+          <span>{thisProgression[0].numerals}</span>
         </div>
 
         <div>
-          {progression}
-
+          {thisProgression[0].numerals}
           <div className="w-full h-4 bg-dark rounded-full flex justify-start">
             <div
               className={`h-full  rounded-full ${sliderColor}`}
-              style={{ width: `${pfToNumber * 4}%` }}
+              style={{ width: `${percentage * 4}%` }}
             />
           </div>
-          {10}
+          {percentage}% | {count}x
         </div>
       </div>
     );

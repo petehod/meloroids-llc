@@ -12,20 +12,22 @@ export default function Data() {
     <div className="flex flex-col items-center justify-center w-full gap-2">
       <YayaText type="h2">Gunna Albums</YayaText>
       <div className="flex flex-row gap-8">
-        {albums.map((album) => (
-          <ImageCard
-            href={`/albums/${album.id}`}
-            image={
-              <FirebaseImage
-                alt={`Album artwork for ${album.title}`}
-                filePath={album.artworkPath}
-              />
-            }
-            key={album.id}
-          >
-            {album.title}
-          </ImageCard>
-        ))}
+        {albums
+          .filter((album) => album.songIds.length > 0)
+          .map((album) => (
+            <ImageCard
+              href={`/albums/${album.id}`}
+              image={
+                <FirebaseImage
+                  alt={`Album artwork for ${album.title}`}
+                  filePath={album.artworkPath}
+                />
+              }
+              key={album.id}
+            >
+              {album.title}
+            </ImageCard>
+          ))}
       </div>
       <YayaText type="p">Other albums coming soon....</YayaText>
     </div>

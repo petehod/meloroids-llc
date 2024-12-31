@@ -1,35 +1,43 @@
-import { SONGS } from "../data/songs.data";
+import type { Song } from "@repo/common/song";
 
-// TODO: Fix this
+export interface ChordProgressionFrequency {
+  count: number;
+  percentage: number;
+}
+
+export type CalculateChordProgressionFrequencyMap = Record<
+  string,
+  ChordProgressionFrequency
+>;
+
 export const DataService = {
-  calculateChordProgressionFrequencies: () => {
-    const totalSongs = SONGS.length;
+  calculateChordProgressionFrequency: (
+    songs?: Song[]
+  ): CalculateChordProgressionFrequencyMap | undefined => {
+    if (!songs) return;
+    const frequencyMap = new Map<string, number>();
+    let totalProgressions = 0;
 
-    const progressionFrequency = { "I IV V": 10 };
+    for (const song of songs) {
+      for (const progressionId of song.progressionIds) {
+        frequencyMap.set(
+          progressionId,
+          (frequencyMap.get(progressionId) || 0) + 1
+        );
+        totalProgressions++;
+      }
+    }
 
-    // const progressionFrequency = SONGS.reduce<Record<string, number>>(
-    //   (acc, { progression }) => {
-    //     acc[progression.numerals] = (acc[progression.numerals] || 0) + 1;
-    //     return acc;
-    //   },
-    //   {}
-    // );
-
-    return Object.entries(progressionFrequency).map(([progression, count]) => ({
-      progression,
-      count,
-      frequency: `${((count / totalSongs) * 100).toFixed(2)}%`
-    }));
-  },
-  singleChordProgressionFrequency: (chordProgression: string) => {
-    const allProgressions = DataService.calculateChordProgressionFrequencies();
-    return allProgressions.find(
-      (progression) => progression.progression === chordProgression
-    );
-  },
-  songsWithProgression: (chordProgression: string, originalSong: string) => {
-    return SONGS.filter(
-      (song) => chordProgression === "I IV V" && song.name !== originalSong
-    );
+    const result: CalculateChordProgressionFrequencyMap = {};
+    for (const [progressionId, count] of frequencyMap.entries() as unknown as [
+      string,
+      number
+    ][]) {
+      result[progressionId] = {
+        count,
+        percentage: parseFloat(((count / totalProgressions) * 100).toFixed(2))
+      };
+    }
+    return result;
   }
 };

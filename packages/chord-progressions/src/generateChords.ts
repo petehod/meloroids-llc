@@ -12,7 +12,9 @@ import {
 export const generateProgressionsInAllKeys = (
   enteredChordProgression: ChordProgression
 ): ProgressionInAllKeys[] => {
-  const splitNumerals = enteredChordProgression.numerals.split(" ");
+  const splitNumerals = enteredChordProgression.numerals
+    .replace(/\s+/g, "") // Remove any whitespace
+    .split("-");
 
   const chordInfos = splitNumerals
     .map((numeral) => getNumeralInfo(enteredChordProgression.is_major, numeral))

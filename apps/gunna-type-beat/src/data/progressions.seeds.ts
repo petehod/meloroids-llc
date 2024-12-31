@@ -1,18 +1,8 @@
-import type { ChordProgression } from "@repo/common/chordProgression";
-
 export const oneFourFiveId = "b5b75e12-9ab0-4f2f-91e3-10c7f0e02d78";
 
 export const MAJOR_SEED_PROGRESSION_IDS = {
   oneFourFive: "b5b75e12-9ab0-4f2f-91e3-10c7f0e02d78"
 };
-
-export const MAJOR_PROGRESSIONS: ChordProgression[] = [
-  {
-    id: MAJOR_SEED_PROGRESSION_IDS.oneFourFive,
-    is_major: true,
-    numerals: "I-IV-V"
-  }
-];
 
 export const MINOR_SEED_PROGRESSION_IDS = {
   oneFlatSeven: "b5b75e12-9ab0-4f2f-91e3-10c7f0e02d78",
@@ -104,4 +94,4 @@ export const MINOR_PROGRESSIONS = [
   }
 ];
 
-export const SEED_PROGRESSIONS = [...MINOR_PROGRESSIONS, ...MAJOR_PROGRESSIONS];
+export const SEED_PROGRESSIONS = [...MINOR_PROGRESSIONS];
