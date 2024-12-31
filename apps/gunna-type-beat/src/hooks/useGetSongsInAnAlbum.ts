@@ -21,7 +21,6 @@ export const useGetSongsByIds = (songIds?: string[]) => {
         // Update the state with validated songs
         setSongs(validatedSongs);
       } catch (err) {
-        console.error("Error fetching or validating songs:", err);
         setSongs([]); // Reset state on error
       }
     };

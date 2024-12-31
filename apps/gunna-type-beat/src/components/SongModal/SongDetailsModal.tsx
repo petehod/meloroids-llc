@@ -2,7 +2,6 @@ import { Modal } from "@repo/ui/Modal";
 import { memo } from "react";
 import { YayaText } from "@repo/ui/YayaText";
 import type { Song } from "@repo/common/song";
-import { DataService } from "../../services/data.services";
 import { SongDetailsParameters } from "./SongDetailsParameters";
 import { SongDetailsProgressionInAllKeys } from "./SongDetailsProgressionInAllKeys";
 import { SongDetailsIFrame } from "./SongDetailsIFrame";
@@ -15,8 +14,7 @@ interface SongDetailsModalProps {
 
 export const SongDetailsModal = memo(
   ({ song, onClose }: SongDetailsModalProps) => {
-    const { chords, artistIds, key, name, tempo, youtubeURL, progressionIds } =
-      song;
+    const { chords, artistIds, key, name, tempo, youtubeURL } = song;
 
     const numerals = "I IV V";
     const tempProgression = { id: "1", numerals, is_major: true };
@@ -25,14 +23,14 @@ export const SongDetailsModal = memo(
     const keyNoteName = song.key.split(" ")[0]; // I.E. C# rather than C# Minor
 
     const frequency = { frequency: 10 };
-    const otherSongs = [];
+    const otherSongs: Song[] = [];
 
     const PARAMETERS = [
       `Tempo: ${tempo} bpm`,
       `Key: ${key}`,
       `Chords: ${chords}`,
       `Progression: ${numerals}`,
-      `   - This chord progression is used in ${frequency?.frequency} of
+      `   - This chord progression is used in ${frequency.frequency} of
             the songs from one of wun` // TODO: make dynamic with other albums
     ];
 

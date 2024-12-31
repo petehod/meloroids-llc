@@ -13,7 +13,7 @@ export default function AlbumPage() {
 
   const album = useGetAlbum(albumID);
   const songs = useGetSongsByIds(album?.songIds);
-  console.log("men", songs);
+
   if (!album) return null;
   return (
     <div className="w-full overflow-x-scroll">

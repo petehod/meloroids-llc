@@ -24,7 +24,7 @@ export default function ArtistsAdmin() {
   const [newArtist, setNewArtist] = useState<Partial<Artist>>({
     albumIds: [], // Comes from other collections
     name: "",
-    songsIds: []
+    songIds: []
   });
 
   const handleChange = useHandleFormChange({

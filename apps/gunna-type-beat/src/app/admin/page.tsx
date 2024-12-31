@@ -1,11 +1,23 @@
 "use client";
 import { ContentContainer } from "@repo/ui/ContentContainer";
 import Link from "next/link";
+import { Button } from "@repo/ui/Button";
+import { useCallback } from "react";
 import { useAuth } from "../../context/AuthProvider";
 import { LoginForm } from "../../components/Form/LoginForm";
+import { SeedService } from "../../services/seed.service";
 
 export default function Admin() {
   const { user } = useAuth();
+
+  const handleSeedDB = useCallback(() => {
+    SeedService.seedProgressions();
+    SeedService.seedSongs();
+  }, []);
+
+  const handleResetDB = useCallback(() => {
+    SeedService.resetDB();
+  }, []);
 
   if (!user) return <LoginForm />;
 
@@ -31,6 +43,11 @@ export default function Admin() {
           {link.text}
         </Link>
       ))}
+
+      <Button onClick={handleSeedDB}>Seed Songs and Progressions</Button>
+      <Button backgroundColor="bg-red" onClick={handleResetDB}>
+        Reset DB
+      </Button>
     </ContentContainer>
   );
 }

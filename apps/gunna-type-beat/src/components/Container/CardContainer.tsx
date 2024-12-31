@@ -1,7 +1,3 @@
-interface ComponentProps {
-  hello: string;
-}
-
-export const Component = ({ ...rest }: ComponentProps) => {
+export const Component = () => {
   return <div></div>;
 };
