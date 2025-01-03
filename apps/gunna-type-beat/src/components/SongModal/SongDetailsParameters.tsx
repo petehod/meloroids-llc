@@ -13,14 +13,9 @@ export const SongDetailsParameters = ({
         Parameters
       </YayaText>
       <ul className="flex flex-col gap-2 mb-6">
-        {parameters.map((param, index) => (
+        {parameters.map((param) => (
           <li key={`${param} ${Math.random()}`}>
-            <YayaText
-              className={index === parameters.length - 1 ? "ml-4" : ""}
-              type="p"
-            >
-              {param}
-            </YayaText>
+            <YayaText type="p">{param}</YayaText>
           </li>
         ))}
       </ul>

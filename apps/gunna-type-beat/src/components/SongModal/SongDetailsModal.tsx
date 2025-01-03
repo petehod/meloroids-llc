@@ -24,15 +24,11 @@ export const SongDetailsModal = memo(
     // const otherSongs = DataService.songsWithProgression(numerals, name);
     const keyNoteName = song.key.split(" ")[0]; // I.E. C# rather than C# Minor
 
-    const frequency = { frequency: 10 };
-
     const PARAMETERS = [
       `Tempo: ${tempo} bpm`,
       `Key: ${key}`,
       `Chords: ${chords}`,
-      `Progression: ${numerals}`,
-      `   - This chord progression is used in ${frequency.frequency} of
-            the songs from one of wun` // TODO: make dynamic with other albums
+      `Progression: ${numerals}`
     ];
 
     return (
@@ -56,8 +52,6 @@ export const SongDetailsModal = memo(
           <SongDetailsIFrame source={youtubeURL} />
 
           <SongDetailsParameters parameters={PARAMETERS} />
-
-          {/* <SongDetailsOtherSongs numerals={numerals} otherSongs={otherSongs} /> */}
 
           <SongDetailsProgressionInAllKeys
             progression={progression.progression ?? tempProgression}
