@@ -1,36 +1,26 @@
-import { AlbumSchema, type Album } from "@repo/common/album";
+import { AlbumSchema } from "@repo/common/album";
 import { FirestoreService } from "@repo/firebase/firestoreService";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export const useGetAllAlbums = () => {
-  const [albums, setAlbums] = useState<Album[]>();
-
-  useEffect(() => {
-    async function runEffect() {
+  return useQuery({
+    queryKey: ["albums"],
+    queryFn: async () => {
       const docs = await FirestoreService.readAllDocs("albums");
-
-      const albumsData = docs?.map((doc) => AlbumSchema.parse(doc));
-
-      setAlbums(albumsData);
-    }
-
-    runEffect();
-  }, []);
-
-  return albums;
+      return docs?.map((doc) => AlbumSchema.parse(doc));
+    },
+    staleTime: 1000 * 60 * 5
+  });
 };
 
 export const useGetAlbum = (albumId: string) => {
-  const [album, setAlbum] = useState<Album | null>(null);
-  useEffect(() => {
-    async function runEffect() {
+  return useQuery({
+    queryKey: ["album", albumId],
+    queryFn: async () => {
       const albumData = await FirestoreService.readDoc(albumId, "albums");
-      const validate = AlbumSchema.parse(albumData);
-      setAlbum(validate);
-    }
-
-    runEffect();
-  }, [albumId]);
-
-  return album;
+      return AlbumSchema.parse(albumData);
+    },
+    enabled: Boolean(albumId),
+    staleTime: 1000 * 60 * 5
+  });
 };

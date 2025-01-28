@@ -14,7 +14,7 @@ import { useSongs } from "../../../../hooks/useSongs";
 export default function AlbumIdAdmin() {
   const { id: albumId } = useParams<{ id: string }>();
 
-  const album = useGetAlbum(albumId);
+  const { data: album } = useGetAlbum(albumId);
 
   const artists = useGetArtistsByIds(album?.artistIds);
 

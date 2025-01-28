@@ -11,7 +11,7 @@ import { useSongs } from "../../../hooks/useSongs";
 export default function AlbumPage() {
   const { id: albumID } = useParams<{ id: string }>();
 
-  const album = useGetAlbum(albumID);
+  const { data: album } = useGetAlbum(albumID);
   const { data: songs } = useSongs(album?.songIds);
 
   return (

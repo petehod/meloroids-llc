@@ -7,7 +7,7 @@ import FirebaseImage from "../../../components/Image/FirebaseImage";
 import { ImageCard } from "../../../components/Card/ImageCard";
 
 export default function AlbumsAdmin() {
-  const albums = useGetAllAlbums();
+  const { data: albums } = useGetAllAlbums();
   return (
     <ContentContainer containerStyles="flex-row justify-between">
       <AddAlbumForm />
