@@ -7,7 +7,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { GA_ID } from "@repo/assets/googleAnalytics";
 import { Footer } from "../components/Footer";
 import { GunnaTypeBeatHeader } from "../components/GunnaTypeBeatHeader";
-import { AuthProvider } from "../context/AuthProvider";
+import { ProviderContainer } from "../components/ProviderContainer";
 
 const pjs = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -31,11 +31,11 @@ export default function RootLayout({
       <body
         className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >
-        <AuthProvider>
+        <ProviderContainer>
           <GunnaTypeBeatHeader title={title} />
           <ContentContainer> {children}</ContentContainer>
           <Footer />
-        </AuthProvider>
+        </ProviderContainer>
       </body>
     </html>
   );

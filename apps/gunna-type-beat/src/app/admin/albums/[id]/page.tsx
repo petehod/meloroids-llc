@@ -7,9 +7,9 @@ import { useGetArtistsByIds } from "../../../../hooks/useArtists";
 import { useGetAlbum } from "../../../../hooks/useAlbums";
 import { CreateChordProgressionForm } from "../../../../components/Form/CreateChordProgressionForm";
 import { CreateSongForm } from "../../../../components/Form/CreateSongForm";
-import { useGetSongsByIds } from "../../../../hooks/useGetSongsInAnAlbum";
 import { Table } from "../../../../components/Table";
 import { TABLE_COLUMN_TITLES } from "../../../../components/constants/table.constants";
+import { useSongs } from "../../../../hooks/useSongs";
 
 export default function AlbumIdAdmin() {
   const { id: albumId } = useParams<{ id: string }>();
@@ -18,7 +18,7 @@ export default function AlbumIdAdmin() {
 
   const artists = useGetArtistsByIds(album?.artistIds);
 
-  const songs = useGetSongsByIds(album?.songIds);
+  const { data: songs } = useSongs(album?.songIds);
 
   if (!album) return null;
 
