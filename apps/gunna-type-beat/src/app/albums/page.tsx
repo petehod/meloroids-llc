@@ -4,12 +4,12 @@ import { useGetAllAlbums } from "../../hooks/useAlbums";
 import { ImageCard } from "../../components/Card/ImageCard";
 import FirebaseImage from "../../components/Image/FirebaseImage";
 import { CardGrid } from "../../components/constants/CardGrid";
+import { Skeleton } from "../../components/Skeleton";
 
 export default function Data() {
   const { data: albums } = useGetAllAlbums();
 
-  if (!albums) return null;
-  return (
+  return albums ? (
     <div className="flex flex-col items-center justify-center w-full gap-2">
       <YayaText type="h2">Albums</YayaText>
       <CardGrid>
@@ -22,7 +22,6 @@ export default function Data() {
                 <FirebaseImage
                   alt={`Album artwork for ${album.title}`}
                   filePath={album.artworkPath}
-                  height={300}
                   style={{ objectFit: "contain" }}
                 />
               }
@@ -32,7 +31,8 @@ export default function Data() {
             </ImageCard>
           ))}
       </CardGrid>
-      <YayaText type="p">Other albums coming soon....</YayaText>
     </div>
+  ) : (
+    <Skeleton height="100vh" />
   );
 }

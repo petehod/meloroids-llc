@@ -33,7 +33,9 @@ export default function RootLayout({
       >
         <ProviderContainer>
           <GunnaTypeBeatHeader title={title} />
-          <ContentContainer> {children}</ContentContainer>
+          <ContentContainer containerStyles="flex-1">
+            {children}
+          </ContentContainer>
           <Footer />
         </ProviderContainer>
       </body>

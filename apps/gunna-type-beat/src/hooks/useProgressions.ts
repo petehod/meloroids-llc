@@ -1,24 +1,23 @@
 import type { ChordProgression } from "@repo/common/chordProgression";
 import { ChordProgressionSchema } from "@repo/common/chordProgression";
 import { FirestoreService } from "@repo/firebase/firestoreService";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { MINUTE } from "../constants/time.constants";
 
 export const useGetAllProgressions = () => {
-  const [progressions, setProgressions] = useState<ChordProgression[] | null>(
-    null
-  );
-
-  useEffect(() => {
-    async function runEffect() {
+  return useQuery({
+    queryKey: ["chordProgressions"],
+    queryFn: async () => {
       const docs = await FirestoreService.readAllDocs("chordProgressions");
-      const validate = docs?.map((doc) => ChordProgressionSchema.parse(doc));
-      setProgressions(validate ?? null);
-    }
-
-    runEffect();
-  }, []);
-
-  return progressions;
+      return docs?.map((doc) => ChordProgressionSchema.parse(doc));
+    },
+    gcTime: MINUTE * 5,
+    staleTime: MINUTE * 5,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false
+  });
 };
 
 export const useGetProgressionById = (id: string | null) => {

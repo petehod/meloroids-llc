@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home(): JSX.Element {
   return (
-    <main className="flex flex-col w-full items-center justify-start ">
+    <main className="flex flex-col w-full items-center justify-center ">
       <ContentContainer containerStyles=" flex flex-col md:flex-row items-center w-full justify-between text-left gap-4 lg:gap-12">
         <TextContainer containerStyles=" flex flex-col basis-full gap-6 ">
           <YayaText type="h2">

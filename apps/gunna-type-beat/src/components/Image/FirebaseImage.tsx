@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { StorageService } from "@repo/firebase/storageService";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
+import { Skeleton } from "../Skeleton";
 
 export type FirebaseImageProps = Partial<ImageProps> & {
   filePath: string;
   alt: string;
 };
 
+//TODO: standardize image sizing and loading component
 const FirebaseImage: React.FC<FirebaseImageProps> = ({
   filePath,
   alt,
@@ -37,12 +39,12 @@ const FirebaseImage: React.FC<FirebaseImageProps> = ({
       alt={alt}
       height={300}
       src={imageURL}
-      style={{ objectFit: "cover" }} // or "contain" if you want the full image without cropping
+      style={{ objectFit: "cover" }}
       width={200}
       {...rest}
     />
   ) : (
-    <p>Loading...</p>
+    <Skeleton height={300} width="100%" />
   );
 };
 

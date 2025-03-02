@@ -26,10 +26,7 @@ export default function Admin() {
       href: "/admin/artists",
       text: "Artists"
     },
-    {
-      href: "/admin/songs",
-      text: "Songs"
-    },
+
     {
       href: "/admin/albums",
       text: "Albums"

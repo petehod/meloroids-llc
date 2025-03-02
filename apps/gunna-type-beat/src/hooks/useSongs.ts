@@ -1,6 +1,7 @@
 import { SongSchema } from "@repo/common/song";
 import { FirestoreService } from "@repo/firebase/firestoreService";
 import { useQuery } from "@tanstack/react-query";
+import { MINUTE } from "../constants/time.constants";
 
 export const useSongs = (songIds?: string[]) => {
   return useQuery({
@@ -13,6 +14,9 @@ export const useSongs = (songIds?: string[]) => {
       return docs.map((doc) => SongSchema.parse(doc));
     },
     enabled: Boolean(songIds?.length),
-    staleTime: 1000 * 60 * 20
+    staleTime: MINUTE * 20,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false
   });
 };

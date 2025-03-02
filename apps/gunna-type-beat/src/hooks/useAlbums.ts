@@ -11,7 +11,10 @@ export const useGetAllAlbums = () => {
       return docs?.map((doc) => AlbumSchema.parse(doc));
     },
     gcTime: MINUTE * 5,
-    staleTime: MINUTE * 5
+    staleTime: MINUTE * 5,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false
   });
 };
 
@@ -23,6 +26,9 @@ export const useGetAlbum = (albumId: string) => {
       return AlbumSchema.parse(albumData);
     },
     enabled: Boolean(albumId),
-    staleTime: 1000 * 60 * 5
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false
   });
 };

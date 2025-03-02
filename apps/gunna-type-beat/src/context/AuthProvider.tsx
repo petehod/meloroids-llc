@@ -22,6 +22,7 @@ const AuthContext = createContext<{
   loading: true
 });
 
+// TODO: handle auth on server side
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [firestoreUser, setFirestoreUser] = useState<FirebaseUser | null>(null);

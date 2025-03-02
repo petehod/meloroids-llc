@@ -1,8 +1,9 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { getColorByFrequency } from "../utils/progressionFrequency.utils";
 import { useHandleKeyDown } from "../hooks/useHandleKeyDown";
 import type { ChordProgressionFrequency } from "../services/data.services";
 import { useGetAllProgressions } from "../hooks/useProgressions";
+import { Skeleton } from "./Skeleton";
 
 interface SongTableRowProps {
   name: string;
@@ -20,15 +21,18 @@ export const SongTableRow = memo(
     name,
     tempo,
     songKey,
-
     progressionIds,
     onClick,
     chordProgressionFrequency,
     gridCols = "grid-cols-6"
   }: SongTableRowProps) => {
-    const allProgressions = useGetAllProgressions();
-    const thisProgression = allProgressions?.filter(
-      (progression) => progression.id === progressionIds[0]
+    const { data: allProgressions } = useGetAllProgressions();
+    const thisProgression = useMemo(
+      () =>
+        allProgressions?.filter(
+          (progression) => progression.id === progressionIds[0]
+        ),
+      [allProgressions, progressionIds]
     );
 
     const handleKeyDown = useHandleKeyDown(onClick);
@@ -36,9 +40,8 @@ export const SongTableRow = memo(
     const percentage = chordProgressionFrequency?.percentage ?? 0;
     const count = chordProgressionFrequency?.count;
     const sliderColor = getColorByFrequency(percentage);
-    if (!thisProgression) return null;
 
-    return (
+    return thisProgression ? (
       <div
         className={`grid ${gridCols} gap-4 items-center p-4 border-b last:border-b-0 bg-white text-dark hover:bg-gray-50 overflow-x-scroll md:overflow-hidden`}
         onClick={onClick}
@@ -65,6 +68,8 @@ export const SongTableRow = memo(
           {percentage}% | {count}x
         </div>
       </div>
+    ) : (
+      <Skeleton height={100} />
     );
   }
 );
