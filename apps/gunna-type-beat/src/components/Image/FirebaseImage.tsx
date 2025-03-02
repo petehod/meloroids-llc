@@ -11,6 +11,7 @@ export type FirebaseImageProps = Partial<ImageProps> & {
 const FirebaseImage: React.FC<FirebaseImageProps> = ({
   filePath,
   alt,
+
   ...rest
 }) => {
   const [imageURL, setImageURL] = useState<string | null>(null);
@@ -33,12 +34,12 @@ const FirebaseImage: React.FC<FirebaseImageProps> = ({
 
   return imageURL ? (
     <Image
-      height={200}
-      style={{ maxWidth: "100%" }}
+      alt={alt}
+      height={300}
+      src={imageURL}
+      style={{ objectFit: "cover" }} // or "contain" if you want the full image without cropping
       width={200}
       {...rest}
-      alt={alt}
-      src={imageURL}
     />
   ) : (
     <p>Loading...</p>
