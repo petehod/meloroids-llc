@@ -114,5 +114,11 @@ export const SAMPLE_PACK_LINK_BLOCKS: LinkBlock[] = [
     title: "Cordoba Sample Pack (Gunna, Teni, Nocap) (prod yayadean)",
     link: SAMPLE_PACK_LINKS.cordoba,
     ...SHARED_SAMPLE_PACK_LINK_BLOCKS
+  },
+  {
+    title:
+      "Expensive Starter Pack (Polo G. Gunna, Juice WRLD, Lil Peep) (prod yayadean)",
+    link: SAMPLE_PACK_LINKS.expensive,
+    ...SHARED_SAMPLE_PACK_LINK_BLOCKS
   }
 ];

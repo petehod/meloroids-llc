@@ -24,10 +24,11 @@ export const SAMPLE_PACK_LINKS = {
   eclipse: "https://rkns.link/byboi",
   cowboy: "https://rkns.link/jbqcn",
   solace: "https://rkns.link/yf1xz",
-  noir: "https://rkns.link/nxt8z",
+  noir: "https://rkns.link/84gub",
   lastGoodbye: "https://rkns.link/nxt8z",
   wunOfOne: "https://rkns.link/voqqy",
   secondChance: "https://rkns.link/w0os4",
   wunner: "https://rekonise.com/wunner-sample-pack-boq8n",
-  cordoba: "https://rekonise.com/yayadean/cordoba"
+  cordoba: "https://rekonise.com/yayadean/cordoba",
+  expensive: "https://rekonise.com/expensive-sample-pack-hergk"
 };
