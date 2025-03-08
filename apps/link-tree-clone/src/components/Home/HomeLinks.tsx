@@ -1,12 +1,16 @@
 import React, { memo } from "react";
-import { linkBlocks } from "../../data/linkBlocks.data";
+import { LinkBlock as LinkBlockType } from "../../data/linkBlocks.data";
 import { ImageIcon } from "../Icons/ImageIcon";
 import { LinkBlock } from "../Links/LinkBlock";
 
-export const HomeLinks = memo(() => {
+type HomeLinksProps = {
+  links: LinkBlockType[];
+};
+
+export const HomeLinks = memo<HomeLinksProps>(({ links }) => {
   return (
     <div className="w-full flex flex-col gap-2 rounded mb-4">
-      {linkBlocks
+      {links
         .filter((link) => link.active)
         .map((block, index) => (
           <LinkBlock

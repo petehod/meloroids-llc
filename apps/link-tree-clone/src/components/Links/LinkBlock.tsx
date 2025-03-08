@@ -11,7 +11,7 @@ type AnimatedLinkBlockProps = {
 export const LinkBlock = memo<AnimatedLinkBlockProps>(
   ({ icon, link, title }) => {
     const styles =
-      "flex rounded-sm h-16 border-1 border-dark w-full items-center justify-start";
+      "flex rounded-sm min-h-16 py-2 border-1 border-dark w-full items-center justify-start";
     return (
       <motion.div variants={BUTTON_VARIANTS} whileTap="tap" whileHover="hover">
         <Link href={link} className={styles}>

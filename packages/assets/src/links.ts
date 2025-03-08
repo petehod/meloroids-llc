@@ -17,3 +17,17 @@ export const LINKS = {
   wunOfOneSamples: "https://rkns.link/voqqy",
   wunOfOneStarters: "https://rkns.link/5l7mo"
 };
+
+export const SAMPLE_PACK_LINKS = {
+  solar: "https://rkns.link/qpl2w",
+  obsidian: "https://rkns.link/n66sf",
+  eclipse: "https://rkns.link/byboi",
+  cowboy: "https://rkns.link/jbqcn",
+  solace: "https://rkns.link/yf1xz",
+  noir: "https://rkns.link/nxt8z",
+  lastGoodbye: "https://rkns.link/nxt8z",
+  wunOfOne: "https://rkns.link/voqqy",
+  secondChance: "https://rkns.link/w0os4",
+  wunner: "https://rekonise.com/wunner-sample-pack-boq8n",
+  cordoba: "https://rekonise.com/yayadean/cordoba"
+};
