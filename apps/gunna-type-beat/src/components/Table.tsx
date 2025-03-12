@@ -25,11 +25,11 @@ export const Table = memo(
       setSelectedSong(song);
     };
     return (
-      <>
+      <div className="overflow-x-auto w-full">
         {modalOpen && selectedSong && (
           <SongDetailsModal onClose={closeModal} song={selectedSong} />
         )}
-        <div className="p-6 bg-light table overflow-scroll">
+        <div className="p-6 bg-light table">
           <div
             className={`grid ${gridCols} gap-4 table overflow-scroll font-medium bg-dark p-4 rounded-md`}
           >
@@ -55,7 +55,7 @@ export const Table = memo(
             );
           })}
         </div>
-      </>
+      </div>
     );
   }
 );
