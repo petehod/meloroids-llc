@@ -28,25 +28,23 @@ To get your local environment up and running, follow these steps:
 
 **1. Clone the repository:**
 
-  ```bash
-  git clone <https://github.com/petehod/meloroids-llc.git>
-  cd meloroids-llc
-  ```
+```bash
+git clone <https://github.com/petehod/meloroids-llc.git>
+cd meloroids-llc
+```
 
+**2. Install dependencies:**
 
-**2.  Install dependencies:**
-
-  ```bash
-    # cd into each project inside of /apps and run
-    npm install
-  ```
+```bash
+ chmod +x <your-relative-path-to-this-project>
+./install.sh
+```
 
 **3. Run the development server**
 
-  ```bash
-  # from root
-  npm run dev
-  ```
-
+```bash
+# from root
+npm run dev
+```
 
 All projects should be running!
