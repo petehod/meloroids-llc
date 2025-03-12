@@ -1,59 +1,52 @@
-# Turborepo Tailwind CSS starter
+# Meloroids LLC
 
-This is an official starter Turborepo.
+Welcome to **Meloroids LLC** – my playground for quickly building tools and ideas to aid in music production.
 
-## Using this example
+## Overview
 
-Run the following command:
+**Meloroids LLC** is a collection of innovative tools designed for music production. Born from a passion for both technology and music, this project serves as a playground for testing out fresh ideas that help producers get more creative in the studio.
 
-```sh
-npx create-turbo@latest -e with-tailwind
+![Logo](./apps/gunna-type-beat/public/gtb.png)
 
-```
+## What’s Inside?
 
-## What's inside?
+- **Rapid Prototyping**: Experiment with new ideas and features, all within a single, unified repository.
+- **Real Tools for Producers**: These aren’t just experiments—they’re actively used by me and a community of fellow producers.
+- **Scalable Architecture**: Leverage the power of a mono repo to easily maintain and update multiple projects simultaneously.
 
-This Turborepo includes the following packages/apps:
+## Tech Stack
 
-### Apps and Packages
+- **Turbo Repo**: For a lightning-fast, scalable development environment.
+- **TypeScript**: Ensuring type-safe code for robust, maintainable projects.
+- **Tailwind CSS**: For modern, responsive UI design.
+- **Firebase**: Powering backend services with ease and reliability.
+- **Next.js & React**: Building interactive, dynamic, and performant user interfaces.
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Getting Started
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+To get your local environment up and running, follow these steps:
 
-### Building packages/ui
+**1. Clone the repository:**
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.js`. This was chosen for several reasons:
+  ```bash
+  git clone <https://github.com/petehod/meloroids-llc.git>
+  cd meloroids-llc
+  ```
 
-- Make sharing one `tailwind.config.js` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
 
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
+**2.  Install dependencies:**
 
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
+  ```bash
+    # cd into each project inside of /apps and run
+    npm install
+  ```
 
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
-```
+**3. Run the development server**
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+  ```bash
+  # from root
+  npm run dev
+  ```
 
-### Utilities
 
-This Turborepo has some additional tools already setup for you:
-
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+All projects should be running!
