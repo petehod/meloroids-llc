@@ -57,6 +57,12 @@ const SHARED_SAMPLE_PACK_LINK_BLOCKS: Pick<
 export const SAMPLE_PACK_LINK_BLOCKS: LinkBlock[] = [
   {
     title:
+      "Farm Town Sample Pack (Shaboozey, Acoustic Guitar, Slide Guitar) (prod. yayadean)",
+    link: SAMPLE_PACK_LINKS.farmTown,
+    ...SHARED_SAMPLE_PACK_LINK_BLOCKS
+  },
+  {
+    title:
       "Solar Sample Pack (Gunna, Travis Scott, Guitar, Flute) (prod @yayadean)",
     link: SAMPLE_PACK_LINKS.solar,
     ...SHARED_SAMPLE_PACK_LINK_BLOCKS

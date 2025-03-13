@@ -19,6 +19,7 @@ export const LINKS = {
 };
 
 export const SAMPLE_PACK_LINKS = {
+  farmTown: "https://rkns.link/hdet0",
   solar: "https://rkns.link/qpl2w",
   obsidian: "https://rkns.link/n66sf",
   eclipse: "https://rkns.link/byboi",
