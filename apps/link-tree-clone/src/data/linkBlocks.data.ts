@@ -10,18 +10,33 @@ export type LinkBlock = {
 };
 export const HOME_LINKS: LinkBlock[] = [
   {
-    title: "All my sample packs",
-    icon: GUITAR_ICON,
-    iconType: "icon",
-    link: "/sample-packs",
+    title: "Learn How to Make Beautiful Guitar Loops",
+    icon: "/images/glg.png",
+    iconType: "image",
+    link: LINKS.guitarLoopGod,
     active: true
   },
 
   {
-    title: "Guitar Loop God",
-    icon: "/images/glg.png",
-    iconType: "image",
-    link: LINKS.guitarLoopGod,
+    title:
+      "Instant Inspiration From 300 Chord Diagrams Used In Hit Songs (FREE)",
+    icon: GUITAR_ICON,
+    iconType: "icon",
+    link: LINKS.guitarChordCookbookLM,
+    active: true
+  },
+  {
+    title: "600 'Expensive' Guitar Chord Diagrams Used In Hit Songs",
+    icon: GUITAR_ICON,
+    iconType: "icon",
+    link: LINKS.guitarChordCookbookEE,
+    active: true
+  },
+  {
+    title: "All my sample packs",
+    icon: GUITAR_ICON,
+    iconType: "icon",
+    link: "/sample-packs",
     active: true
   },
   {
@@ -29,14 +44,6 @@ export const HOME_LINKS: LinkBlock[] = [
     icon: CHART_ICON,
     iconType: "icon",
     link: LINKS.gunnaTypeBeat,
-    active: true
-  },
-
-  {
-    title: "300 Guitar Chord Diagrams (FREE)",
-    icon: GUITAR_ICON,
-    iconType: "icon",
-    link: LINKS.guitarChordCookbookLM,
     active: true
   },
 
