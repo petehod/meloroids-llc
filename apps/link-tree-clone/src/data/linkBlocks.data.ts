@@ -10,7 +10,14 @@ export type LinkBlock = {
 };
 export const HOME_LINKS: LinkBlock[] = [
   {
-    title: "Learn How to Make Beautiful Guitar Loops",
+    title: "1-on-1 Guitar Lessons",
+    icon: GUITAR_ICON,
+    iconType: "icon",
+    link: LINKS.lessons,
+    active: true
+  },
+  {
+    title: "Start Writing The Best Guitar Melodies of Your Life",
     icon: "/images/glg.png",
     iconType: "image",
     link: LINKS.guitarLoopGod,
@@ -23,13 +30,6 @@ export const HOME_LINKS: LinkBlock[] = [
     icon: GUITAR_ICON,
     iconType: "icon",
     link: LINKS.guitarChordCookbookLM,
-    active: true
-  },
-  {
-    title: "600 'Expensive' Guitar Chord Diagrams Used In Hit Songs",
-    icon: GUITAR_ICON,
-    iconType: "icon",
-    link: LINKS.guitarChordCookbookEE,
     active: true
   },
   {

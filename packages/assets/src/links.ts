@@ -1,15 +1,17 @@
 export const LINKS = {
+  lessons: "https://www.guitarloopgod.com/lessons",
   shop: "https://shop.yayadean.com",
-  guitarLoopGod: "https://www.guitarloopgod.com/products/guitar-loop-god",
+  guitarLoopGod:
+    "https://shop.guitarloopgod.com/collections/guitar-resources/products/guitar-loop-god",
   linkTree: "https://links.yayadean.com",
   tikTok: "https://www.tiktok.com/@_yayadean",
   instagram: "https://www.instagram.com/_yayadean",
   youtube: "https://www.youtube.com/@yayadean38",
   nameGenerator: "https://namegenerator.yayadean.com",
   guitarChordCookbookLM:
-    "https://www.guitarloopgod.com/products/guitar-chord-cookbook",
+    "https://shop.guitarloopgod.com/pages/guitar-chord-cookbook",
   guitarChordCookbookEE:
-    "https://www.guitarloopgod.com/products/guitar-chord-cookbook-expensive-edition",
+    "https://shop.guitarloopgod.com/products/guitar-chord-cookbook-expensive-edition",
   expensiveSamplePackLM:
     "https://shop.yayadean.com/pages/expensive-sample-pack",
   deansList:
