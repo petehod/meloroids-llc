@@ -5,7 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": ["GTM_ID"]
     },
     "lint": {},
     "type-check": {},
@@ -13,6 +14,7 @@
       "cache": false,
       "persistent": true
     },
+
     "clean": {
       "cache": false
     }
