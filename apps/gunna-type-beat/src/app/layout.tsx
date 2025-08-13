@@ -3,8 +3,7 @@ import "@repo/ui/styles.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ContentContainer } from "@repo/ui/ContentContainer";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GA_ID } from "@repo/assets/googleAnalytics";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Footer } from "../components/Footer";
 import { GunnaTypeBeatHeader } from "../components/GunnaTypeBeatHeader";
 import { ProviderContainer } from "../components/ProviderContainer";
@@ -23,11 +22,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
+  // eslint-disable-next-line turbo/no-undeclared-env-vars
+  const gtmId = process.env.GTM_ID!;
   return (
     <html lang="en">
-      {process.env.NODE_ENV === "production" && (
-        <GoogleAnalytics gaId={GA_ID} />
-      )}
+      {gtmId && <GoogleTagManager gtmId={gtmId} />}
+
       <body
         className={`${pjs.className} w-full h-full flex flex-col items-center justify-between min-h-screen`}
       >
