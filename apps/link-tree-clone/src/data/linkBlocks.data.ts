@@ -14,7 +14,7 @@ export const HOME_LINKS: LinkBlock[] = [
     icon: GUITAR_ICON,
     iconType: "icon",
     link: LINKS.lessons,
-    active: true
+    active: false
   },
   {
     title: "Start Writing The Best Guitar Melodies of Your Life",
