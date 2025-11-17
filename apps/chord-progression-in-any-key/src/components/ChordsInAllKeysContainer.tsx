@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { BackgroundColors } from "@repo/ui/Colors";
 import { YayaText } from "@repo/ui/YayaText";
 import { formatMajorMinor } from "../utils/textFormat.utils";
@@ -9,13 +10,12 @@ interface ChordsInAllKeysContainerProps {
   rootIsMajor: boolean;
 }
 
-export const ChordsInAllKeysContainer = ({
-  chordsInAllKeys,
-  rootNumerals,
-  rootIsMajor
-}: ChordsInAllKeysContainerProps) => {
+export const ChordsInAllKeysContainer = forwardRef<
+  HTMLDivElement,
+  ChordsInAllKeysContainerProps
+>(({ chordsInAllKeys, rootNumerals, rootIsMajor }, ref) => {
   return (
-    <div className="w-full bg-white rounded py-8 px-4">
+    <div ref={ref} className="w-full bg-white rounded py-8 px-4">
       <YayaText type="h2" className="mb-2">
         <EmphasizedText text={rootNumerals} /> in all keys
       </YayaText>
@@ -50,4 +50,6 @@ export const ChordsInAllKeysContainer = ({
       })}
     </div>
   );
-};
+});
+
+ChordsInAllKeysContainer.displayName = "ChordsInAllKeysContainer";
