@@ -3,8 +3,8 @@ import { Form } from "@repo/ui/Form";
 import { Label } from "@repo/ui/Label";
 import { Input } from "@repo/ui/Input";
 import { Button } from "@repo/ui/Button";
-import { useCallback, useState } from "react";
-
+import { useCallback, useRef, useState } from "react";
+import { toPng } from "html-to-image";
 import { motion } from "framer-motion";
 import { ChordsInAllKeysContainer } from "../components/ChordsInAllKeysContainer";
 import {
@@ -36,6 +36,25 @@ export default function Home() {
     }
   ];
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "my-image-name.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value, type, checked } = event.target;
@@ -60,57 +79,63 @@ export default function Home() {
   );
 
   return (
-    <motion.main className="flex " layout={true}>
-      <Form
-        onSubmit={handleSubmit}
-        backgroundColor="bg-dark"
-        title="Enter a chord progression in any key"
-        button={
-          <Button
-            backgroundColor="bg-white"
-            textColor="text-dark"
-            type="submit"
-            maxWidth="100%"
-          >
-            Submit
-          </Button>
-        }
-      >
-        {FORM_FIELDS.map((field) => (
-          <div key={field.title}>
-            <Label htmlFor={field.sharedValue} text={field.title} />
-            <Input
-              placeholder={field.placeholder}
-              id={field.sharedValue}
-              name={field.sharedValue}
-              type={field.type}
-              onChange={handleChange}
-              value={
-                field.type === "checkbox"
-                  ? undefined
-                  : String(
-                      chordProgressionInfo[
+    <motion.main className="flex flex-col" layout={true}>
+      <motion.div className="flex">
+        <Form
+          onSubmit={handleSubmit}
+          backgroundColor="bg-dark"
+          title="Enter a chord progression in any key"
+          button={
+            <Button
+              backgroundColor="bg-white"
+              textColor="text-dark"
+              type="submit"
+              maxWidth="100%"
+            >
+              Submit
+            </Button>
+          }
+        >
+          {FORM_FIELDS.map((field) => (
+            <div key={field.title}>
+              <Label htmlFor={field.sharedValue} text={field.title} />
+              <Input
+                placeholder={field.placeholder}
+                id={field.sharedValue}
+                name={field.sharedValue}
+                type={field.type}
+                onChange={handleChange}
+                value={
+                  field.type === "checkbox"
+                    ? undefined
+                    : String(
+                        chordProgressionInfo[
+                          field.sharedValue as keyof ChordProgression
+                        ]
+                      )
+                }
+                checked={
+                  field.type === "checkbox"
+                    ? chordProgressionInfo[
                         field.sharedValue as keyof ChordProgression
-                      ]
-                    )
-              }
-              checked={
-                field.type === "checkbox"
-                  ? chordProgressionInfo[
-                      field.sharedValue as keyof ChordProgression
-                    ] === true
-                  : undefined
-              }
-            />
-          </div>
-        ))}
-      </Form>
+                      ] === true
+                    : undefined
+                }
+              />
+            </div>
+          ))}
+        </Form>
+        {chordsInAllKeys.length > 1 && (
+          <ChordsInAllKeysContainer
+            ref={ref}
+            chordsInAllKeys={chordsInAllKeys}
+            rootIsMajor={chordProgressionInfo.is_major}
+            rootNumerals={chordProgressionInfo.numerals}
+          />
+        )}
+      </motion.div>
       {chordsInAllKeys.length > 1 && (
-        <ChordsInAllKeysContainer
-          chordsInAllKeys={chordsInAllKeys}
-          rootIsMajor={chordProgressionInfo.is_major}
-          rootNumerals={chordProgressionInfo.numerals}
-        />
+        <motion.button onClick={onButtonClick}>Download</motion.button>
       )}
     </motion.main>
   );
